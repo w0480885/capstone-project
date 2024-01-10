@@ -4,6 +4,14 @@ This project is built on top of pythons `flask` package (backend) as well as jav
  - react does use the `react-router-dom` package to do client side routing. 
  - python is used for API routing.
 
+## Installation Steps
+1. Install [NodeJS](https://nodejs.org/en)
+2. Install [python](https://www.python.org/)
+2. `git pull https://github.com/Some1and2-XC/capstone-project/tree/main.git`
+2. run the CLI command `npm run start` in the pulled directory
+2. Open [http://localhost:3000](http://localhost:3000) in a browser
+
+
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and this section was auto generated (but still useful).
 
