@@ -1,3 +1,9 @@
+# Capstone Project
+## Tech Decisions
+This project is built on top of pythons `flask` package (backend) as well as javascripts `react` packages (frontend) in addition to a SQL database to keep track of data.
+ - react does use the `react-router-dom` package to do client side routing. 
+ - python is used for API routing.
+
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
