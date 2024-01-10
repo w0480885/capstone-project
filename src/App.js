@@ -1,15 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Layout from "./Layout";
+import Home from "./views/Home";
+import Timer from "./views/Timer";
+
 function App() {
+
   return (
-    <div className="App">
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a>
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="timer" element={<Timer />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
