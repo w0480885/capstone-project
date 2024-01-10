@@ -5,7 +5,7 @@ This project is built on top of pythons `flask` package (backend) as well as jav
  - python is used for API routing.
 
 # Getting Started with Create React App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and this section was auto generated (but still useful).
 
 ## Available Scripts
 In the project directory, you can run:
