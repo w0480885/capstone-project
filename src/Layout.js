@@ -22,7 +22,7 @@ function Sidebar({ children }) {
                 { children }
             </div>
             <div style={settings_style}>
-                <h1>Hello</h1>
+                <p>settings</p>
             </div>
         </div>
     );
