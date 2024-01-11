@@ -36,7 +36,7 @@ function Layout({ children }) {
     return (
         <div style={object_style}>
             <Sidebar>
-                <h1 style={{ textDecoration: "underline" }}>Timely</h1>
+                <h1 style={{ textDecoration: "underline" }}>Timecard</h1>
                 <Link to="/">Home</Link>
                 <Link to="timer">Timer</Link>
                 <Link to="api-test">API Test</Link>
