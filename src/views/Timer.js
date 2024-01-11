@@ -1,4 +1,5 @@
 function Timer() {
+
     return (
         <>
             <h1>Timer Section!</h1>

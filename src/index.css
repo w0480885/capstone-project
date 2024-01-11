@@ -2,6 +2,9 @@
     --text-color: white;
     --highlight-color: white;
 
+    --link-color: #42f551;
+    --link-color-hover: #198522;
+
     background-color: #303040;
     color: var(--text-color);
 }
@@ -13,4 +16,17 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+a,p {
+    font-size: 1.2em;
 }

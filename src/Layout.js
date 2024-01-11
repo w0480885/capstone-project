@@ -5,11 +5,25 @@ function Sidebar({ children }) {
         backgroundColor: "rgba(0, 0, 0, .2)",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
+        width: "200px",
+    };
+    let settings_style = {
+        backgroundColor: "rgba(0, 0, 0, .4)",
         padding: "15px",
     };
     return (
         <div style={object_style}>
-            { children }
+            <div style={{
+                padding: "15px",
+                display: "flex",
+                flexDirection: "column",
+            }}>
+                { children }
+            </div>
+            <div style={settings_style}>
+                <h1>Hello</h1>
+            </div>
         </div>
     );
 }
@@ -22,12 +36,10 @@ function Layout({ children }) {
     return (
         <div style={object_style}>
             <Sidebar>
-                <h1>sidebar</h1>
+                <h1 style={{ textDecoration: "underline" }}>Timely</h1>
                 <Link to="/">Home</Link>
                 <Link to="timer">Timer</Link>
-                <Link to="#">test option</Link>
-                <Link to="#">test option</Link>
-                <Link to="#">test option</Link>
+                <Link to="api-test">API Test</Link>
             </Sidebar>
             <div style={{margin: "15px"}}>
                 <Outlet />
