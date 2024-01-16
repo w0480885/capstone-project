@@ -9,4 +9,4 @@ allowed_methods = ["GET"]
 @app.route("/api", methods=allowed_methods)
 def hello_world():
     return {"a": "B"}
-
+    

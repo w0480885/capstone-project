@@ -6,11 +6,12 @@ This project is built on top of pythons `flask` package (backend) as well as jav
 
 ## Installation Steps
 1. Install [NodeJS](https://nodejs.org/en)
-2. Install [Python](https://www.python.org/)
+2. Install [Python](https://www.python.org/) (make sure you check add python to path on the first screen)
 2. `git pull https://github.com/Some1and2-XC/capstone-project.git`
-2. Run the CLI command `pip install -r requirements.txt`
+2. Run the CLI command `pip install -r requirements.txt` (or `python -m pip install ...` if pip isn't recognized as a command)
+2. Run the CLI command `npm install`
 2. Run the CLI command `npm run start` in the pulled directory to start the frontend server
-2. In a different terminal emulator run the CLI command `npm run dev:server` to start the backend server
+2. In a different terminal emulator run the CLI command `npm run server:dev` to start the backend server
 2. Open [http://localhost:3000](http://localhost:3000) in a browser
 
 
