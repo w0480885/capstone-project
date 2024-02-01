@@ -37,7 +37,7 @@ function ButtonContainer({children, ...props}) {
 					flexShrink: "2",
 					gap: "1px",
 					overflow: "hidden",
-					borderRadius: "15px",
+					borderRadius: "1.25rem",
 					minWidth: "0px",
 				}}>
 					{ children }
