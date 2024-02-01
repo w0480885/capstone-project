@@ -1,11 +1,87 @@
 :root {
-    --text-color: white;
-    --highlight-color: white;
+	/* 
+	 * Color scheme styles from
+	 * https://github.com/rebelot/kanagawa.nvim/ 
+	 * */
+	/* --scheme_fg: #DCD7BA; */
+	--scheme_fg: white;
+	--scheme_fg_dim: #C8C093;
+	--scheme_fg_reverse: #223249;
+	--scheme_bg_dim: #181820;
+	--scheme_bg_gutter: #2A2A37;
+	--scheme_bg_m3: #16161D;
+	--scheme_bg_m2: #181820;
+	--scheme_bg_m1: #1a1a22;
+	--scheme_bg: #1F1F28;
+	--scheme_bg_p1: #2A2A37;
+	--scheme_bg_p2: #363646;
+	--scheme_special: #938AA9;
+	--scheme_nontext: #54546D;
+	--scheme_whitespace: #54546D;
+	--scheme_bg_search: #2D4F67;
+	--scheme_bg_visual: #223249;
 
-    --link-color: #42f551;
-    --link-color-hover: #198522;
+	--syn-string: #98BB6C;
+	--syn-number: #D27E99;
+	--syn-constant: #FFA066;
+	--syn-identifier: #E6C384;
+	--syn-parameter: #b8b4d0;
+	--syn-fun: #7E9CD8;
+	--syn-statement: #957FB8;
+	--syn-keyword: #957FB8;
+	--syn-operator: #C0A36E;
+	--syn-preproc: #E46876;
+	--syn-type: #7AA89F;
+	--syn-regex: #C0A36E;
+	--syn-deprecated: #717C7C;
+	--syn-comment: #727169;
+	--syn-punct: #9CABCA;
+	--syn-special1: #7FB4CA;
+	--syn-special2: #E46876;
+	--syn-special3: #FF5D62;
 
-    background-color: #303040;
+	--vcs-added: #76946A;
+	--vcs-removed: #C34043;
+	--vcs-changed: #DCA561;
+
+	--diff-add: #2B3328;
+	--diff-delete: #43242B;
+	--diff-change: #252535;
+	--diff-text: #49443C;
+
+	--diag-ok: #98BB6C;
+	--diag-error: #E82424;
+	--diag-warning: #FF9E3B;
+	--diag-info: #658594;
+	--diag-hint: #6A9589;
+
+	--term-sumiInk0: #16161D;
+	--term-autumnRed: #C34043;
+	--term-autumnGreen: #76946A;
+	--term-boatYellow2: #C0A36E;
+	--term-crystalBlue: #7E9CD8;
+	--term-oniViolet: #957FB8;
+	--term-waveAqua1: #6A9589;
+	--term-oldWhite: #C8C093;
+	--term-fujiGray: #727169;
+	--term-samuraiRed: #E82424;
+	--term-springGreen: #98BB6C;
+	--term-carpYellow: #E6C384;
+	--term-springBlue: #7FB4CA;
+	--term-springViolet1: #938AA9;
+	--term-waveAqua2: #7AA89F;
+	--term-fujiWhite: #DCD7BA;
+	--term-surimiOrange: #FFA066;
+	--term-peachRed: #FF5D62;
+
+	/* Direct Use Styles */
+    --text-color: var(--scheme_fg);
+    --highlight-color: var(--scheme_fg);
+
+	--link-color: var(--syn-type);
+	--link-color-hover: var(--scheme_nontext);
+
+    background-color: var(--scheme_bg);
     color: var(--text-color);
 }
 
@@ -16,6 +92,10 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4,h5,a,p,li,button {
+	color: var(--text-color);
 }
 
 a {

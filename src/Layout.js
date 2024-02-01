@@ -40,6 +40,7 @@ function Layout({ children }) {
                 <Link to="/">Home</Link>
                 <Link to="timer">Timer</Link>
                 <Link to="api-test">API Test</Link>
+                <Link to="components">Components</Link>
             </Sidebar>
             <div style={{margin: "15px"}}>
                 <Outlet />

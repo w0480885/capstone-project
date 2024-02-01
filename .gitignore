@@ -7,6 +7,9 @@ __pycache__/
 node_modules/
 package-lock.json
 
+# Misc Media
+media/
+
 # testing
 /coverage
 

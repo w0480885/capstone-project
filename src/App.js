@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Home from "./views/Home";
 import Timer from "./views/Timer";
 import ApiTest from "./views/ApiTest";
+import Components from "./views/Components";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="timer" element={<Timer />} />
                     <Route path="api-test" element={<ApiTest />} />
+                    <Route path="components" element={<Components />} />
                 </Route>
             </Routes>
         </BrowserRouter>
