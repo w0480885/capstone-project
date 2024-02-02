@@ -28,7 +28,7 @@ function Button({children, ...props}) {
 	return (
 		<>
 			<a href={props.href}>
-				<button className={"button"} style={obj_styles}>
+				<button onClick={props.onClick} className={"button"} style={obj_styles}>
 					{children}
 				</button>
 			</a>

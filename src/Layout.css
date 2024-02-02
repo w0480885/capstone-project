@@ -6,7 +6,7 @@
 	width: 200px;
 }
 
-.sidebar > .settings {
+.sidebar .settings {
 	background-color: rgba(0, 0, 0, .4);
 	padding: 15px;
 }
@@ -20,7 +20,7 @@
 		width: 100%;
 	}
 
-	.sidebar > .settings {
+	.sidebar .settings {
 		background-color: rgba(0, 0, 0, .2);
 		padding: 5px 15px;
 	}
