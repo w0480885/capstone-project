@@ -4,10 +4,6 @@ import "./Layout.css";
 function Sidebar({ children }) {
     let object_style = {
     };
-    let settings_style = {
-        backgroundColor: "rgba(0, 0, 0, .4)",
-        padding: "15px",
-    };
     return (
         <div className={"sidebar"} style={object_style}>
             <div style={{
@@ -17,7 +13,7 @@ function Sidebar({ children }) {
             }}>
                 { children }
             </div>
-            <div style={settings_style}>
+            <div className={"settings"}>
                 <p>settings</p>
             </div>
         </div>
