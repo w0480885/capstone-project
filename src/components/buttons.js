@@ -1,4 +1,7 @@
+import "./buttons.css";
+
 function Button({children, ...props}) {
+	// Set props.href for specifying url
 
 	const color_styles = {
 		green: "--diag-ok",
@@ -9,21 +12,26 @@ function Button({children, ...props}) {
 	const button_color = props.color ? color_styles[props.color] : "--text-color";
 
 	const obj_styles = {
+		// Ensures all the buttons in a button container are the same height
+		height: "100%",
 		padding: ".75rem",
 
+		// Consider Using white for the text color?
 		color: "var(--scheme_fg_reverse)",
+		fontWeight: "bold",
+		backgroundColor: `var(${button_color})`,
 
 		border: "none",
-		borderRadius: "5px",
-
-		backgroundColor: `var(${button_color})`,
+		borderRadius: "2px",
 	};
 
 	return (
 		<>
-			<button style={obj_styles}>
-				{children}
-			</button>
+			<a href={props.href}>
+				<button className={"button"} style={obj_styles}>
+					{children}
+				</button>
+			</a>
 		</>
 	);
 }
