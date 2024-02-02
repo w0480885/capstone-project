@@ -28,7 +28,7 @@ function Sidebar({ children, ...props }) {
 						{ !is_desktop ? 
 							<ButtonContainer>
 								<Button onClick={() => {set_show_list(!show_list);}}>
-									Show Items
+									Hamberger SVG
 								</Button>
 							</ButtonContainer>
 							: null
@@ -76,7 +76,8 @@ function Layout({ children }) {
 				</SidebarSection>
 				<SidebarSection title={"Analytics"}>
 					<Link to="#">Performance View</Link>
-					<Link to="#">More stats</Link>
+					<Link to="#">Reports</Link>
+					<Link to="#">Invoices</Link>
 				</SidebarSection>
 				<SidebarSection title={"Manage"}>
 					<Link to="#">Projects</Link>

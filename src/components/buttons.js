@@ -23,6 +23,7 @@ function Button({children, ...props}) {
 
 		border: "none",
 		borderRadius: "2px",
+		...props.style,
 	};
 
 	return (
@@ -39,13 +40,13 @@ function Button({children, ...props}) {
 function ButtonContainer({children, ...props}) {
 	return (
 		<>
-			<div style={{ display: "flex", }}>
+			<div style={{ display: "flex", ...props.style, }}>
 				<div style={{
 					display: "flex",
 					flexShrink: "2",
 					gap: "1px",
 					overflow: "hidden",
-					borderRadius: "1.25rem",
+					borderRadius: "999999px",
 					minWidth: "0px",
 				}}>
 					{ children }
