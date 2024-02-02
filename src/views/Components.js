@@ -27,6 +27,12 @@ function Components() {
 				<Button color="red">Billable</Button>
 				<Button color="red">Start/Stop</Button>
 			</ButtonContainer>
+			<br />
+			<ButtonContainer>
+				<Button>Other Option</Button>
+				<Button>Billable</Button>
+				<Button>Start/Stop</Button>
+			</ButtonContainer>
             <hr />
             <h2>TextInput</h2>
             <TextInput placeholder={"enter your social insurance number"} />

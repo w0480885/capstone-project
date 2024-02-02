@@ -1,9 +1,17 @@
+import {Button, ButtonContainer} from "../components/buttons";
+
 function Timer() {
 
     return (
         <>
-            <h1>Timer Section! (section for the timer and calendar)</h1>
-            <hr />
+			<div>
+				<ButtonContainer>
+					<Button>Text</Button>
+					<Button>Text</Button>
+					<Button>Text</Button>
+					<Button>Text</Button>
+				</ButtonContainer>
+			</div>
 		</>
     );
 }
