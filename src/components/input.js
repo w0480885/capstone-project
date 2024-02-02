@@ -11,7 +11,7 @@ function TextInput({children, ...props}) {
             <input
                 style={obj_styles}
                 type={"text"}
-                for={props.for}
+                htmlFor={props.for}
                 name={props.name}
                 value={props.value}
                 placeholder={props.placeholder}
@@ -29,7 +29,7 @@ function Radio({children, ...props}) {
             <input
                 style={obj_styles}
                 type={"radio"}
-                for={props.for}
+                htmlFor={props.for}
                 name={props.name}
                 value={props.value}
             />

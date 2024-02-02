@@ -1,19 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
+import "./Layout.css";
 
 function Sidebar({ children }) {
     let object_style = {
-        backgroundColor: "rgba(0, 0, 0, .2)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        width: "200px",
     };
     let settings_style = {
         backgroundColor: "rgba(0, 0, 0, .4)",
         padding: "15px",
     };
     return (
-        <div style={object_style}>
+        <div className={"sidebar"} style={object_style}>
             <div style={{
                 padding: "15px",
                 display: "flex",
@@ -34,7 +30,7 @@ function Layout({ children }) {
         minHeight: "100vh",
     };
     return (
-        <div style={object_style}>
+        <div className={"layout"} style={object_style}>
             <Sidebar>
                 <h1 style={{ textDecoration: "underline" }}>Timecard</h1>
                 <Link to="/">Home</Link>
