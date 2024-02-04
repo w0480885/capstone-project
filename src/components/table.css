@@ -1,12 +1,35 @@
 .table {
-	overflow-x: scroll;
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .table-row {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.table-row * {
+    flex: 1;
+    margin: 15px;
+
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-row-url {
+    color: var(--text-color);
+}
+
+.table-row-url:hover {
+    filter: brightness(50%);
+}
+
+@media only screen and (max-width: 500px) {
+    .table-row .collapsible {
+        visibility: collapse;
+    }
 }

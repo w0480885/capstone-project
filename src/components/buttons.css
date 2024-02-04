@@ -1,26 +1,26 @@
 .button {
-	border: none;
-	border-radius: 2px;
+    border: none;
+    border-radius: 2px;
 
-	/* Ensures all the buttons in a button container are the same height */
-	height: 100%;
-	padding: .75rem;
+    /* Ensures all the buttons in a button container are the same height */
+    height: 100%;
+    padding: .75rem;
 
-	/* Consider Using white for the text color? */
-	color: var(--scheme_fg_reverse);
-	font-weight: bold;
+    /* Consider Using white for the text color? */
+    color: var(--scheme_fg_reverse);
+    font-weight: bold;
 }
 
 .button:hover {
-	filter: brightness(75%);
-	cursor: pointer;
+    filter: brightness(75%);
+    cursor: pointer;
 }
 
 .button-container {
-	display: flex;
-	flex-shrink: 2;
-	gap: 1px;
-	overflow: hidden;
-	border-radius: 999999px;
-	min-width: 0px;
+    display: flex;
+    flex-shrink: 2;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 999999px;
+    min-width: 0px;
 }
