@@ -13,14 +13,14 @@ function Sidebar({ children, ...props }) {
 		<>
 			<div className={"sidebar"}>
 				<div style={{
-					padding: "15px",
+					padding: "5px 15px",
 					display: "flex",
 					flexDirection: "column",
 				}}>
 					<div style={{
 						display: "flex",
 						justifyContent: "space-between",
-						margin: "1em",
+						margin: "8px",
 					}}>
 						<a href={props.href}><h2 style={{textDecoration: "underline",}}>{props.title}</h2></a>
 						

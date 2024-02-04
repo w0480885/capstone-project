@@ -1,21 +1,19 @@
 import {Button, ButtonContainer} from "../components/buttons";
 import {Calendar} from "../components/calendar";
 
+import "./Timer.css";
+
 function Timer() {
 
     return (
         <>
-			<div style={{
-				width: "100%",
-				backgroundColor: "var(--syn-special1)",
-				display: "flex",
-				justifyContent: "space-between",
+			<div className="timer-header-bar" style={{
 			}}>
 				<h1 style={{
 					margin: "15px",
 					color: "white",
 				}}>What are you working on?</h1>
-				<ButtonContainer style={{ margin: "15px", }}>
+				<ButtonContainer className="header-bar-buttons" style={{ margin: "15px", }}>
 					<Button>Create Project</Button>
 					<Button>Tags</Button>
 					<Button>Billable</Button>

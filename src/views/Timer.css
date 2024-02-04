@@ -1,0 +1,25 @@
+.timer-header-bar {
+	width: 100%;
+	background-color: var(--syn-special1);
+
+	display: flex;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+	.timer-header-bar {
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.timer-header-bar .button-container {
+		border-radius: 0px;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.timer-header-bar .button {
+		width: 100%;
+	}
+}

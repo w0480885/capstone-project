@@ -15,9 +15,9 @@ function Calendar() {
 			<div style={{color: "black",}}>
 				<DnDCalendar
 					localizer={localizer}
+					draggableAccessor={ (e) => true }
 					startAccessor="start"
 					endAccessor="end"
-					draggableAccessor={ (e) => true }
 				/>
 			</div>
 		</>
