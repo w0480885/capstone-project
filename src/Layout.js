@@ -2,7 +2,6 @@ import {useState} from "react";
 import {useMediaQuery} from "./utils";
 import { Outlet, Link } from "react-router-dom";
 import "./Layout.css";
-import {Button, ButtonContainer} from "./components/buttons";
 
 function Sidebar({ children, ...props }) {
 	// props.title is the title of the sidebar (text at the top)
@@ -26,11 +25,23 @@ function Sidebar({ children, ...props }) {
 						<a href={props.href}><h2 style={{textDecoration: "underline",}}>{props.title}</h2></a>
 						
 						{ !is_desktop ? 
-							<ButtonContainer>
-								<Button onClick={() => {set_show_list(!show_list);}}>
-									Hamberger SVG
-								</Button>
-							</ButtonContainer>
+							<button style={{backgroundColor: "transparent", border: "none"}} onClick={() => {set_show_list(!show_list);}}>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="50"
+									width="50"
+									viewBox="0 0 100 100"
+									style={{
+										stroke: "var(--text-color)",
+										strokeWidth: "15",
+										strokeLinecap: "round",
+									}}
+									>
+									<path d="M 7.5,15 H 92.5" />
+									<path d="M 7.5,50 H 92.5" />
+									<path d="M 7.5,85 H 92.5" />
+								</svg>
+							</button>
 							: null
 						}
 					</div>
