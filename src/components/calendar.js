@@ -1,4 +1,3 @@
-
 import {Calendar as RBigCalendar, momentLocalizer} from "react-big-calendar";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import moment from "moment";

@@ -2,3 +2,7 @@
 .rbc-calendar {
 	background-color: white;
 }
+
+.rbc-month-row {
+	min-height: 5em;
+}
