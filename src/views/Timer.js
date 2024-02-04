@@ -7,13 +7,13 @@ function Timer() {
         <>
 			<div style={{
 				width: "100%",
-				backgroundColor: "var(--syn-constant)",
+				backgroundColor: "var(--syn-special1)",
 				display: "flex",
 				justifyContent: "space-between",
 			}}>
 				<h1 style={{
 					margin: "15px",
-					textShadow: "1px 1px 0px var(--scheme_fg_reverse)",
+					color: "white",
 				}}>What are you working on?</h1>
 				<ButtonContainer style={{ margin: "15px", }}>
 					<Button>Create Project</Button>
