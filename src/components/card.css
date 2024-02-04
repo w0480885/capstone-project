@@ -1,0 +1,22 @@
+.card {
+    margin: 0;
+    padding: 0;
+    overflow: elipisis;
+    height: 100%;
+    width: 175px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.card h2 {
+    color: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 100%;
+        border: none;
+    }
+}
