@@ -12,8 +12,6 @@ const localizer = momentLocalizer(moment)
 function Calendar() {
 	return (
 		<>
-			<h1>React Big Calendar</h1>
-			<h6>This is the same calendar library from the actual toggl website.</h6>
 			<div style={{color: "black",}}>
 				<DnDCalendar
 					localizer={localizer}
