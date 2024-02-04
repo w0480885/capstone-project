@@ -1,4 +1,5 @@
 import {Button, ButtonContainer} from "../components/buttons";
+import {Calendar} from "../components/calendar";
 
 function Timer() {
 
@@ -22,9 +23,7 @@ function Timer() {
 					<Button>Start/Stop</Button>
 				</ButtonContainer>
 			</div>
-			<p>
-				Insert absolutely stunning calendar here
-			</p>
+			<Calendar />
 		</>
     );
 }

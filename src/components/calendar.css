@@ -1,0 +1,11 @@
+.react-calendar__month-view__days__day {
+	color: var(--scheme_bg);
+}
+
+.react-calendar__navigation__label__labelText {
+	color: var(--scheme_bg);
+}
+
+.react-calendar__navigation__arrow {
+	color: var(--scheme_bg);
+}
