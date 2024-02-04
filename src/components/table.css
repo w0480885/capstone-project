@@ -1,0 +1,12 @@
+.table {
+	overflow-x: scroll;
+	display: flex;
+	flex-direction: column;
+}
+
+.table-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 5em;
+}
