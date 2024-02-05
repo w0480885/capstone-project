@@ -1,5 +1,6 @@
 import {Button, ButtonContainer} from "../components/buttons";
 import {TextInput, Radio} from "../components/input";
+import {Table, TableRow} from "../components/table";
 
 function Components() {
 
@@ -39,6 +40,25 @@ function Components() {
             <Radio name="a" />
             <Radio name="a" />
             <Radio name="a" />
+			<h2>Table</h2>
+			<Table>
+				<TableRow header bold>
+					<p>Title</p>
+					<p className="collapsible">Description</p>
+					<p>Description-2</p>
+				</TableRow>
+				<TableRow href="#">
+					<p>Name</p>
+					<p className="collapsible">Description</p>
+					<p>Description-2</p>
+				</TableRow>
+				<TableRow href="#">
+					<p>Name</p>
+					<p className="collapsible">Description</p>
+					<p>Description-2</p>
+				</TableRow>
+
+			</Table>
         </>
     );
 }
