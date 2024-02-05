@@ -40,25 +40,25 @@ function Components() {
             <Radio name="a" />
             <Radio name="a" />
             <Radio name="a" />
-			<h2>Table</h2>
-			<Table>
-				<TableRow header bold>
-					<p>Title</p>
-					<p className="collapsible">Description</p>
-					<p>Description-2</p>
-				</TableRow>
-				<TableRow href="#">
-					<p>Name</p>
-					<p className="collapsible">Description</p>
-					<p>Description-2</p>
-				</TableRow>
-				<TableRow href="#">
-					<p>Name</p>
-					<p className="collapsible">Description</p>
-					<p>Description-2</p>
-				</TableRow>
+            <h2>Table</h2>
+            <Table>
+                <TableRow header bold>
+                    <p>Title</p>
+                    <p className="collapsible">Description</p>
+                    <p>Description-2</p>
+                </TableRow>
+                <TableRow href="#">
+                    <p>Name</p>
+                    <p className="collapsible">Description</p>
+                    <p>Description-2</p>
+                </TableRow>
+                <TableRow href="#">
+                    <p>Name</p>
+                    <p className="collapsible">Description</p>
+                    <p>Description-2</p>
+                </TableRow>
 
-			</Table>
+            </Table>
         </>
     );
 }
