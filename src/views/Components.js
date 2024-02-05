@@ -63,6 +63,7 @@ function Components() {
                     <p>Description-2</p>
                 </TableRow>
             </Table>
+            <hr />
 
             <h2>Calendar</h2>
             <p>

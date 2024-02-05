@@ -86,12 +86,12 @@ function Layout({ children }) {
                     <Link to="timer">Timer</Link>
                 </SidebarSection>
                 <SidebarSection title={"Analytics"}>
-                    <Link to="/reports">Reports</Link>
+                    <Link to="reports">Reports</Link>
                     <Link to="#">Performance View</Link>
                     <Link to="#">Invoices</Link>
                 </SidebarSection>
                 <SidebarSection title={"Manage"}>
-                    <Link to="#">Projects</Link>
+                    <Link to="projects">Projects</Link>
                     <Link to="#">Clients</Link>
                     <Link to="#">Billable Rates</Link>
                     <Link to="#">Invoices</Link>
@@ -100,7 +100,7 @@ function Layout({ children }) {
                 </SidebarSection>
                 <SidebarSection title={"Extensions"}>
                     <Link to="#">Integrations</Link>
-                    <Link to="#">Export</Link>
+                    <Link to="export">Export</Link>
                 </SidebarSection>
                 <SidebarSection title={"Development"}>
                     <Link to="api-test">API Test</Link>

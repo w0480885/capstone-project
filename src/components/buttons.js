@@ -2,6 +2,8 @@ import "./buttons.css";
 
 function Button({children, ...props}) {
 	// Set props.href for specifying url
+    // Set props.type for button type
+    // Set props.onClick for click action
 
 	const color_styles = {
 		green: "--diag-ok",
@@ -19,7 +21,12 @@ function Button({children, ...props}) {
 	return (
 		<>
 			<a href={props.href}>
-				<button onClick={props.onClick} className={"button"} style={obj_styles}>
+				<button
+                    type={props.type}
+                    onClick={props.onClick}
+                    className={"button"}
+                    style={obj_styles}
+                >
 					{children}
 				</button>
 			</a>
