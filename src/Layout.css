@@ -1,27 +1,27 @@
 .sidebar {
-	background-color: rgba(0, 0, 0, .2);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 200px;
+    background-color: rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
 }
 
 .sidebar .settings {
-	background-color: rgba(0, 0, 0, .4);
-	padding: 15px;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 15px;
 }
 
 @media (max-width: 800px) {
-	.layout {
-		flex-direction: column;
-	}
+    .layout {
+        flex-direction: column;
+    }
 
-	.sidebar {
-		width: 100%;
-	}
+    .sidebar {
+        width: 100%;
+    }
 
-	.sidebar .settings {
-		background-color: rgba(0, 0, 0, .2);
-		padding: 5px 15px;
-	}
+    .sidebar .settings {
+        background-color: rgba(0, 0, 0, .2);
+        padding: 5px 15px;
+    }
 }
