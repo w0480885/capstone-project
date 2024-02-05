@@ -1,6 +1,8 @@
 import {Button, ButtonContainer} from "../components/buttons";
 import {TextInput, Radio} from "../components/input";
 import {Table, TableRow} from "../components/table";
+import {Calendar} from "../components/calendar";
+import {TopBar} from "../components/topBar";
 
 function Components() {
 
@@ -65,19 +67,23 @@ function Components() {
             </Table>
             <hr />
 
+            <h2>TopBar</h2>
+            <TopBar title="Title of the top bar">
+                <Button>You can add buttons!</Button>
+                <Button>Just like this one!</Button>
+                <Button>Or this one!</Button>
+            </TopBar>
+            <hr />
+
             <h2>Calendar</h2>
             <p>
-                Because the calendar is so large, one isn't going to be included in this section.
-                That being said some information about it will be held here.
-                <br />
                 The github for the calendar library can be found <a href="https://github.com/jquense/react-big-calendar">here</a>.
                 <br />
                 The NPM package can be found <a href="https://www.npmjs.com/package/react-big-calendar">here</a>.
                 <br />
                 This package was chosen because it is the same one used by the original toggl.com website.
             </p>
-            <p></p>
-            <p></p>
+            <Calendar />
         </>
     );
 }
