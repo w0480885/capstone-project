@@ -1,4 +1,5 @@
 import {Table, TableRow} from "../components/table";
+import {TopBar} from "../components/topBar";
 
 function Reports() {
 
@@ -22,8 +23,7 @@ function Reports() {
 
     return (
         <>
-            <h1>Reports</h1>
-            <hr />
+            <TopBar title="Reports" />
 
             <Table margin="5px">
                 {reports}

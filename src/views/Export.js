@@ -1,8 +1,9 @@
+import {TopBar} from "../components/topBar";
+
 function Export() {
     return (
         <>
-            <h1>Export Section</h1>
-            <hr />
+            <TopBar title="Export Section" />
             <p>This section is for data exports for users.</p>
         </>
     );
