@@ -74,6 +74,23 @@ function SidebarSection({ children, ...props }) {
     );
 }
 
+function Footer({ children }) {
+    return (
+        <footer style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            background: "rgba(0, 0, 0, .2)",
+            gap: "15px",
+            padding: "15px",
+            flex: "0",
+        }}>
+            <a>Forgot your password?</a>
+            <a>Contact Support</a>
+            <a>Want a sticker?</a>
+        </footer>
+    );
+}
+
 function Layout({ children }) {
     let object_style = {
         display: "flex",
@@ -107,8 +124,16 @@ function Layout({ children }) {
                     <Link to="components">Components</Link>
                 </SidebarSection>
             </Sidebar>
-            <div style={{width: "100%"}}>
-                <Outlet />
+            <div style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: "1",
+                width: "100%",
+            }}>
+                <div style={{flex: "1",}}>
+                    <Outlet />
+                </div>
+                <Footer />
             </div>
         </div>
     );
