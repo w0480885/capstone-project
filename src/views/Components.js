@@ -41,7 +41,7 @@ function Components() {
             <Radio name="a" />
             <Radio name="a" />
             <h2>Table</h2>
-            <Table>
+            <Table margin="15px">
                 <TableRow header bold>
                     <p>Title</p>
                     <p className="collapsible">Description</p>
