@@ -100,28 +100,66 @@ function Layout({ children }) {
         <div className={"layout"} style={object_style}>
             <Sidebar title="Timecard" href="/">
                 <SidebarSection title={"Track"}>
-                    <Link to="timer">Timer</Link>
+                    <Link to="timer">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Timer</p>
+                    </Link>
                 </SidebarSection>
                 <SidebarSection title={"Analytics"}>
-                    <Link to="reports">Reports</Link>
-                    <Link to="performance">Performance View</Link>
-                    <Link to="invoices">Invoices</Link>
+                    <Link to="reports">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <p>Reports</p>
+                    </Link>
+                    <Link to="performance">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <p>Performance View</p>
+                    </Link>
                 </SidebarSection>
                 <SidebarSection title={"Manage"}>
-                    <Link to="projects">Projects</Link>
-                    <Link to="clients">Clients</Link>
-                    <Link to="rates">Billable Rates</Link>
-                    <Link to="invoices">Invoices</Link>
-                    <Link to="teams">Teams</Link>
-                    <Link to="tags">Tags</Link>
+                    <Link to="projects">
+                        <i class="fa-solid fa-list-check"></i>
+                        <p>Projects</p>
+                    </Link>
+                    <Link to="clients">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Clients</p>
+                    </Link>
+                    <Link to="rates">
+                        <i class="fa-solid fa-cash-register"></i>
+                        <p>Billable Rates</p>
+                    </Link>
+                    <Link to="invoices">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <p>Invoices</p>
+                    </Link>
+                    <Link to="teams">
+                        <i class="fa-solid fa-user-group"></i>
+                        <p>Teams</p>
+                    </Link>
+                    <Link to="tags">
+                        <i class="fa-solid fa-tags"></i>
+                        <p>Tags</p>
+                    </Link>
                 </SidebarSection>
                 <SidebarSection title={"Extensions"}>
-                    <Link to="integrations">Integrations</Link>
-                    <Link to="export">Export</Link>
+                    <Link to="integrations">
+                        <i class="fa-solid fa-link"></i>
+                        <p>integrations</p>
+                    </Link>
+                    <Link to="export">
+                        <i class="fa-solid fa-file-export"></i>
+                        <p>Export</p>
+                    </Link>
                 </SidebarSection>
                 <SidebarSection title={"Development"}>
-                    <Link to="api-test">API Test</Link>
-                    <Link to="components">Components</Link>
+                    <Link to="api-test">
+                        <i class="fa-solid fa-code"></i>
+                        <p>API Test</p>
+                    </Link>
+                    <Link to="components">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                        <p>Components</p>
+                    </Link>
                 </SidebarSection>
             </Sidebar>
             <div style={{

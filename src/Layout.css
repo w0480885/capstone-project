@@ -7,6 +7,34 @@
     width: 200px;
 }
 
+.sidebar a {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    align-items: center;
+    align-content: space-between;
+}
+
+.sidebar a > p {
+    flex-grow: 1;
+
+    font: inherit;
+    text-align: left;
+    color: inherit;
+    color: #ccc;
+
+    margin: 4px 0;
+    padding: inherit;
+}
+
+.sidebar a > p:hover {
+    color: inherit;
+}
+
+.sidebar a > .fa-solid {
+    flex-grow: 0;
+}
+
 .sidebar .settings {
     background-color: rgba(0, 0, 0, .4);
     padding: 15px;
