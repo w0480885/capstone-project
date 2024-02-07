@@ -27,7 +27,7 @@
     padding: inherit;
 }
 
-.sidebar a > p:hover {
+.sidebar a:hover > p {
     color: inherit;
 }
 
