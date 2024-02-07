@@ -84,6 +84,7 @@ function Footer({ children }) {
             padding: "15px",
             flex: "0",
         }}>
+            <a href="auth">Login & Signup</a>
             <a>Contact Support</a>
             <a>Want a sticker?</a>
         </footer>

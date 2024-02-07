@@ -28,9 +28,12 @@ function AuthCard({ children, ...props }) {
                 <hr style={{margin: "20px 0"}} />
 
                 {/* Form submission data can be formatted here */}
-                <form>
+                <form action="/">
                     {children}
-                    <Button type="submit" style={{margin: "25px 0 0 0"}}>Submit!</Button>
+                    <Button
+                        type="submit"
+                        style={{margin: "25px 0 0 0"}}
+                    >Submit!</Button>
                 </form>
             </div>
         </div>
