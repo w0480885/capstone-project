@@ -4,24 +4,35 @@ import {Button} from "./components/buttons";
 function AuthCard({ children, ...props }) {
     return (
         <div style={{
-            flexDirection: "column",
-            alignContent: "center",
-            border: "1px solid var(--text-color)",
-            borderRadius: "15px",
-            padding: "15px",
-            margin: "0 auto",
-            boxShadow: "1px 1px 5px 0px rgba(255, 255, 255, .5)",
-            width: "200px",
-        }}>
-            <h1>{props.title}</h1>
-            <hr />
+            display: "flex",
 
-            {/* Form submission data can be formatted here */}
-            <form>
-                {children}
-                <div style={{height: "2em"}}></div>
-                <Button type="submit">Submit!</Button>
-            </form>
+            flex: "1",
+            flexDirection: "column",
+            alignItems: "center",
+            alignContent: "center",
+        }}>
+            <div style={{
+                position: "absolute",
+                top: "40%",
+                transform: "translateY(-50%)",
+
+                border: "1px solid var(--text-color)",
+                borderRadius: "15px",
+                boxShadow: "1px 1px 5px 0px rgba(255, 255, 255, .5)",
+
+                width: "200px",
+                padding: "15px",
+            }}>
+                <h1 style={{margin: "0"}}>{props.title}</h1>
+                {props.alt}
+                <hr style={{margin: "20px 0"}} />
+
+                {/* Form submission data can be formatted here */}
+                <form>
+                    {children}
+                    <Button type="submit" style={{margin: "25px 0 0 0"}}>Submit!</Button>
+                </form>
+            </div>
         </div>
     );
 }
@@ -36,14 +47,6 @@ function AuthLayout({ children }) {
                 minHeight: "100vh",
             }}>
                 <div style={{flex: "1",}}>
-                    <div style={{
-                        margin: "25px",
-                    }}>
-                        <Link to="login">Login!</Link>
-                        <br />
-                        <Link to="signup">Signup!</Link>
-                    </div>
-                    <hr />
                     <Outlet />
                 </div>
                 <footer style={{
@@ -65,7 +68,10 @@ function AuthLayout({ children }) {
 
 function Login() {
     return (
-        <AuthCard title="Login">
+        <AuthCard
+            title="Login"
+            alt={<a href="signup">Signup</a>}
+        >
             <input placeholder="Enter Email/Username" />
             <input placeholder="Enter Password" />
         </AuthCard>
@@ -74,7 +80,10 @@ function Login() {
 
 function Signup() {
     return (
-        <AuthCard title="Signup">
+        <AuthCard
+            title="Signup"
+            alt={<a href="login">Login</a>}
+        >
             <input placeholder="Enter Email" />
             <input placeholder="Enter Username" />
             <input placeholder="Enter Password" />

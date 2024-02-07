@@ -84,7 +84,6 @@ function Footer({ children }) {
             padding: "15px",
             flex: "0",
         }}>
-            <a>Forgot your password?</a>
             <a>Contact Support</a>
             <a>Want a sticker?</a>
         </footer>
