@@ -22,7 +22,12 @@ function Sidebar({ children, ...props }) {
                         justifyContent: "space-between",
                         margin: "8px",
                     }}>
-                        <a href={props.href}><h2 style={{textDecoration: "underline",}}>{props.title}</h2></a>
+                        <a
+                            href={props.href}
+                            style={{flexDirection: "row",}}
+                        >
+                            <h2 style={{textDecoration: "underline",}}>{props.title}</h2>
+                        </a>
                         
                         { !is_desktop ? 
                             <button style={{backgroundColor: "transparent", border: "none"}} onClick={() => {set_show_list(!show_list);}}>
@@ -68,6 +73,11 @@ function SidebarSection({ children, ...props }) {
                 <h2 style={{
                     marginBottom: "0", 
                 }}>{props.title}</h2>
+                <hr style={{
+                    width: "100%",
+                    filter: "brightness(50%)",
+                    margin: "0",
+                }}/>
                 { children }
             </div>
         </>
