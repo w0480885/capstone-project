@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useMediaQuery} from "./utils";
-import { Outlet, Link } from "react-router-dom";
+import {Outlet, Link} from "react-router-dom";
 import "./Layout.css";
 
 function Sidebar({ children, ...props }) {
@@ -104,19 +104,19 @@ function Layout({ children }) {
                 </SidebarSection>
                 <SidebarSection title={"Analytics"}>
                     <Link to="reports">Reports</Link>
-                    <Link to="#">Performance View</Link>
-                    <Link to="#">Invoices</Link>
+                    <Link to="performance">Performance View</Link>
+                    <Link to="invoices">Invoices</Link>
                 </SidebarSection>
                 <SidebarSection title={"Manage"}>
                     <Link to="projects">Projects</Link>
-                    <Link to="#">Clients</Link>
-                    <Link to="#">Billable Rates</Link>
-                    <Link to="#">Invoices</Link>
-                    <Link to="#">Teams</Link>
-                    <Link to="#">Tags</Link>
+                    <Link to="clients">Clients</Link>
+                    <Link to="rates">Billable Rates</Link>
+                    <Link to="invoices">Invoices</Link>
+                    <Link to="teams">Teams</Link>
+                    <Link to="tags">Tags</Link>
                 </SidebarSection>
                 <SidebarSection title={"Extensions"}>
-                    <Link to="#">Integrations</Link>
+                    <Link to="integrations">Integrations</Link>
                     <Link to="export">Export</Link>
                 </SidebarSection>
                 <SidebarSection title={"Development"}>

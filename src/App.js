@@ -6,7 +6,14 @@ import {Login, Signup, AuthLayout} from "./Auth";
 import Home from "./views/Home";
 import Timer from "./views/Timer";
 import Reports from "./views/Reports";
+import Performance from "./views/Performance";
+import Invoices from "./views/Invoices";
+import Clients from "./views/Clients";
+import Rates from "./views/Rates";
+import Teams from "./views/Teams";
+import Tags from "./views/Tags";
 import Projects from "./views/Projects";
+import Integrations from "./views/Integrations";
 import Export from "./views/Export";
 
 import ApiTest from "./views/ApiTest";
@@ -21,7 +28,14 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path="timer" element={<Timer />} />
                     <Route path="reports" element={<Reports />} />
+                    <Route path="performance" element={<Performance />} />
                     <Route path="projects" element={<Projects />} />
+                    <Route path="clients" element={<Clients />} />
+                    <Route path="rates" element={<Rates />} />
+                    <Route path="invoices" element={<Invoices />} />
+                    <Route path="teams" element={<Teams />} />
+                    <Route path="tags" element={<Tags />} />
+                    <Route path="integrations" element={<Integrations />} />
                     <Route path="export" element={<Export />} />
                     <Route path="api-test" element={<ApiTest />} />
                     <Route path="components" element={<Components />} />
