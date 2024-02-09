@@ -1,13 +1,14 @@
 import "./card.css";
 
 function Card({children, ...props}) {
+    // Use props.style to set the css of the component
+    // Use props.href to set where to link the card to
+
     return (
         <>
-            <a className={"card"} href={props.href}>
+            <a className={"card"} style={props.style} href={props.href}>
                 <div>
-                    <h1>{props.title}</h1>
-                    <hr />
-                    <h2>{props.description}</h2>
+                    {children}
                 </div>
             </a>
         </>

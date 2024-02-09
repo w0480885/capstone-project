@@ -4,7 +4,7 @@ import {TopBar} from "../components/topBar";
 function Projects() {
     return (
         <>
-            <TopBar title="Some ongoing projects hey?">
+            <TopBar title="Projects">
                 <Button>Create Project</Button>
                 <Button>Tags</Button>
                 <Button>Billable</Button>
