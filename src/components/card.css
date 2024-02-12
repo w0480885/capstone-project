@@ -1,16 +1,38 @@
 .card {
     display: flex;
     flex-direction: column;
+
     margin: 0;
-    padding: 0;
+    padding: 15px;
+
     overflow: hidden;
     text-overflow: ellipsis;
     text-wrap: nowrap;
+
     height: 100%;
+    max-width: 250px;
+    max-height: 250px;
+
     border: 1px solid white;
     border-radius: 15px;
-    padding: 15px;
+
     cursor: pointer;
+}
+
+.card > div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.card > div > img {
+    flex-shrink: 1;
+    border-radius: 99999px;
+    background-color: grey;
+}
+
+.card > div > div {
+    flex: 1;
 }
 
 .card * {

@@ -7,9 +7,7 @@ function Card({children, ...props}) {
     return (
         <>
             <a className={"card"} style={props.style} href={props.href}>
-                <div>
-                    {children}
-                </div>
+                {children}
             </a>
         </>
     );
