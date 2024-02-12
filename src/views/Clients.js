@@ -17,8 +17,8 @@ function Clients() {
                     gap: "15px",
                     alignItems: "center",
                 }}>
-                    <img width="100px" height="100px" style={{borderRadius: "99999px", backgroundColor: "grey",}} />
-                    <div style={{overflow: "hidden", textOverflow: "ellipsis",}}>
+                    <img width="100px" height="100px" style={{flexShrink: "1", borderRadius: "99999px", backgroundColor: "grey",}} />
+                    <div style={{flex: "1",}}>
                         <h1>Hello</h1>
                         <hr />
                         <p>Some text inside the thing</p>

@@ -5,6 +5,8 @@
     justify-content: space-between;
     flex: 0;
     width: 200px;
+
+    border-right: 1px solid var(--text-color);
 }
 
 .sidebar a {
@@ -40,13 +42,15 @@
     padding: 15px;
 }
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
     .layout {
         flex-direction: column;
     }
 
     .sidebar {
         width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--text-color);
     }
 
     .sidebar .settings {

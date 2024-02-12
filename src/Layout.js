@@ -29,6 +29,7 @@ function Sidebar({ children, ...props }) {
                             <h2 style={{textDecoration: "underline",}}>{props.title}</h2>
                         </a>
                         
+                        {/* Shows the SVG at the top of the page if the view isn't being shown on a desktop */}
                         { !is_desktop ? 
                             <button style={{backgroundColor: "transparent", border: "none"}} onClick={() => {set_show_list(!show_list);}}>
                                 <svg
@@ -53,6 +54,7 @@ function Sidebar({ children, ...props }) {
 
                     { (is_desktop || show_list) ? children : null }
                 </div>
+                {/* Shows the section if it is a desktop viewing the page or if on mobile the menu is toggled on */}
                 { (is_desktop || show_list) ?
                     <div className={"settings"}>
                         <p>settings</p>
