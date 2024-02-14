@@ -1,0 +1,7 @@
+{
+    "name": "e-stopwatch",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "react"
+}
