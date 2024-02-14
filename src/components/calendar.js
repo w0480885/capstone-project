@@ -8,15 +8,21 @@ import "./calendar.css";
 const DnDCalendar = withDragAndDrop(RBigCalendar);
 const localizer = momentLocalizer(moment)
 
+// This section is going to be replaced with an API call
 const events = [
     {
         title: "An event that is scheduled for today!!",
         start: moment(),
         end: moment().add(5, "hours"),
-        allDay: false,
-        resource: "hello",
-    }
-]
+        allDay: true, // This needs to be set or else the "work week" section breaks
+    },
+];
+
+const views = {
+    "month": true,
+    "work_week": true,
+    "agenda": true,
+};
 
 function Calendar() {
 	return (
@@ -25,6 +31,7 @@ function Calendar() {
 				<DnDCalendar
 					localizer={localizer}
                     events={events}
+                    views={views}
 					draggableAccessor={ (e) => true }
 					startAccessor="start"
 					endAccessor="end"
