@@ -30,11 +30,22 @@ const views = {
     "day": true,
 };
 
-const allowAllDays = false;
+const allowAllDays = true;
 
 function Calendar() {
 
     const [myEvents, setEvents] = useState(events);
+
+    const newEvent = useCallback(
+        (event) => {
+            setEvents((prev) => {
+                const idList = prev.map((item) => item.id);
+                const newId = Math.max(...idList) + 1;
+                return [ ...prev, { ...event, id: newId } ];
+            })
+        },
+        [setEvents]
+    );
 
     const moveEvent = useCallback(
         ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }) => {
@@ -73,6 +84,7 @@ function Calendar() {
 
                     onEventDrop={ moveEvent }
                     onEventResize={ resizeEvent }
+                    onSelectSlot={ newEvent }
 
                     localizer={localizer}
                     defaultDate={new Date()}
@@ -81,6 +93,7 @@ function Calendar() {
 
                     popup
                     resizeable
+                    selectable
                 />
             </div>
         </>
