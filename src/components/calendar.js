@@ -8,13 +8,23 @@ import "./calendar.css";
 const DnDCalendar = withDragAndDrop(RBigCalendar);
 const localizer = momentLocalizer(moment)
 
+const events = [
+    {
+        title: "An event that is scheduled for today!!",
+        start: moment(),
+        end: moment().add(5, "hours"),
+        allDay: false,
+        resource: "hello",
+    }
+]
+
 function Calendar() {
 	return (
 		<>
 			<div style={{color: "black",}}>
 				<DnDCalendar
 					localizer={localizer}
-                    events={null}
+                    events={events}
 					draggableAccessor={ (e) => true }
 					startAccessor="start"
 					endAccessor="end"
