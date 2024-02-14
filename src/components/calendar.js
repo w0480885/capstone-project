@@ -1,8 +1,10 @@
 import {useState, useCallback} from "react";
 
-import {Calendar as RBigCalendar, momentLocalizer} from "react-big-calendar";
+import {Calendar as RBigCalendar, Views, momentLocalizer} from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import moment from "moment";
 
@@ -64,13 +66,16 @@ function Calendar() {
         <>
             <div style={{color: "black",}}>
                 <DnDCalendar
-                    localizer={localizer}
                     events={myEvents}
+                    defaultView={Views.WEEK}
+
                     views={views}
 
                     onEventDrop={ moveEvent }
                     onEventResize={ resizeEvent }
 
+                    localizer={localizer}
+                    defaultDate={new Date()}
                     startAccessor="start"
                     endAccessor="end"
 
