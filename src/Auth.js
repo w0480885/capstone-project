@@ -70,22 +70,47 @@ function AuthLayout({ children }) {
 }
 
 function Login() {
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      const data = new FormData(event.target);
+  
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          username: data.get('username'),
+          password: data.get('password'),
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        console.log("Logged in successfully");
+        // Redirect user or update UI
+      } else {
+        console.error("Failed to log in");
+        // Show error message
+      }
+    };
+  
     return (
-        <AuthCard
-            title="Login"
-            alt={<a href="signup">Signup</a>}
-        >
-            <input placeholder="Enter Email/Username" />
-            <input placeholder="Enter Password" />
-        </AuthCard>
+      <AuthCard title="Login">
+        <form onSubmit={handleSubmit}>
+          <input name="username" placeholder="Enter Email/Username" required />
+          <input name="password" type="password" placeholder="Enter Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </AuthCard>
     );
-}
+  }
+  
 
 function Signup() {
     return (
         <AuthCard
             title="Signup"
-            alt={<a href="login">Login</a>}
+            alt={<a href="login">Signup</a>}
         >
             <input placeholder="Enter Email" />
             <input placeholder="Enter Username" />

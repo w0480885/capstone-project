@@ -1,11 +1,11 @@
-#!/usr/bin/env python3
-
-from flask import Flask
-
-app = Flask(__name__)
-allowed_methods = ["GET"]
+from flask import Flask, send_from_directory
+import os
 
 
-@app.route("/api", methods=allowed_methods)
-def hello_world():
-    return {"a": "Some other Data"}
+from app.extensions import db, login_manager, cors, migrate
+from app.__init__ import create_app 
+
+app = create_app()
+
+if __name__ == '__main__':
+    app.run(debug=True)

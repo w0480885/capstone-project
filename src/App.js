@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Layout from "./Layout";
-import {Login, Signup, AuthLayout} from "./Auth";
+import { Login, Signup, AuthLayout } from "./Auth";
+
 
 import Home from "./views/Home";
 import Timer from "./views/Timer";
