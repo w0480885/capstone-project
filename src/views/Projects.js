@@ -1,9 +1,11 @@
 import {Button, ButtonContainer} from "../components/buttons";
 import {TopBar} from "../components/topBar";
+import {Popup} from "../components/popup.js";
 
 function Projects() {
     return (
         <>
+            <Popup />
             <TopBar title="Projects">
                 <Button>Create Project</Button>
                 <Button>Tags</Button>
