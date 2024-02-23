@@ -5,7 +5,7 @@ import {Popup} from "../components/popup.js";
 function Projects() {
     return (
         <>
-            <Popup> 
+            <Popup title="Title from projects!"> 
                 <p>Woah this is a popup!</p>
             </Popup>
             <TopBar title="Projects">
