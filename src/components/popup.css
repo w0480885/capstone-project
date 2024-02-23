@@ -1,6 +1,5 @@
 .popup {
     /* Sets position of the object */
-
     position: fixed;
     top: 0;
     left: 0;
@@ -8,11 +7,27 @@
     right: 0;
     margin: auto;
 
+    padding: 15px;
+
     width: 250px;
     height: 250px;
 
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: var(--diag-info);
     border-radius: 15px;
 
     box-shadow: 5px 5px 3px -5px black;
+}
+.popup .popup-close {
+    display: block;
+    color: inherit;
+
+    cursor: pointer;
+}
+
+.popup .popup-close:hover {
+   color: red; 
+}
+
+p {
+    margin: 0;
 }
