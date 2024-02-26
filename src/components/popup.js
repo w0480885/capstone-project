@@ -19,4 +19,12 @@ function Popup({ children, ...props}) {
     );
 }
 
+function MinPopup({ children, ...props }) {
+    return (
+        <>
+            <p>This is a mini popup</p>
+        </>
+    );
+}
+
 export {Popup};
