@@ -1,6 +1,8 @@
 /* Styles for full screen popups */
 .popup .popup-frame {
     /* Sets position of the object */
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;

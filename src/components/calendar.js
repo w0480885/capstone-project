@@ -10,6 +10,7 @@ import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import moment from "moment";
 
 import "./calendar.css";
+import { Button } from "./buttons";
 
 const DnDCalendar = withDragAndDrop(RBigCalendar);
 const localizer = momentLocalizer(moment)
@@ -38,6 +39,45 @@ function Calendar() {
     const [myEvents, setEvents] = useState(events);
     const [popupDisplay, setPopupDisplay] = useState(false);
 
+    const getModal = () => {
+            return (
+                <>
+                    { popupDisplay &&
+                        <Popup>
+                            <div style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                margin: "0 7px 15px 7px",
+                                flex: "0",
+                            }}>
+                                <p style={{display: "block", fontWeight: "bold"}}>Add an Event!</p>
+                                <a onClick={ () => setPopupDisplay(false) } className="popup-close">&#10006;</a>
+                            </div>
+                            <form style={{
+                                display: "flex",
+                                flex: "1",
+                                flexDirection: "column",
+                                gap: "5px",
+                            }}>
+                                <div style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    flex: "1",
+                                }}>
+                                    <input type="text" placeholder="Title" />
+                                    <input type="text" placeholder="Another Thing" />
+                                    <input type="text" placeholder="Woah Even more things" />
+                                    <input type="text" placeholder="I can't even believe the amount of things" />
+                                    <input type="text" placeholder="T'is crazy" />
+                                </div>
+                                <Button style={{width: "100%",}}>Submit</Button>
+                            </form>
+                        </Popup>
+                    }
+                </>
+            );
+    }
+    
     const newEvent = useCallback(
         (event) => {
             setPopupDisplay(true);
@@ -99,15 +139,7 @@ function Calendar() {
                     selectable
                 />
             </div>
-            { popupDisplay &&
-                <Popup>
-                    <div style={{display: "flex", justifyContent: "space-between", margin: "0 7px 15px 7px"}}>
-                        <p style={{display: "block", fontWeight: "bold"}}>Title from projects!</p>
-                        <a onClick={ () => setPopupDisplay(false) } className="popup-close">&#10006;</a>
-                    </div>
-                    <p>Woah this is a popup!</p>
-                </Popup>
-            }
+            { getModal() }
         </>
     );
 }
