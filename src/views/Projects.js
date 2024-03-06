@@ -2,7 +2,7 @@ import {useState} from "react";
 
 import {Button, ButtonContainer} from "../components/buttons";
 import {TopBar} from "../components/topBar";
-import {Popup} from "../components/popup.js";
+import {Popup, MinPopup} from "../components/popup.js";
 
 function Projects() {
 
@@ -26,7 +26,9 @@ function Projects() {
                 <Button>Ajust Duration</Button>
                 <Button>Start/Stop</Button>
             </TopBar>
-            <p>Here is the text section for projects.</p>
+            <MinPopup label="Click Me!">
+                <a>Hello</a>
+            </MinPopup>
         </>
     );
 }

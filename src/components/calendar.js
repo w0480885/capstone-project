@@ -1,4 +1,5 @@
 import {useState, useCallback} from "react";
+import {Popup} from "../components/popup";
 
 import {Calendar as RBigCalendar, Views, momentLocalizer} from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -35,14 +36,16 @@ const allowAllDays = true;
 function Calendar() {
 
     const [myEvents, setEvents] = useState(events);
+    const [popupDisplay, setPopupDisplay] = useState(false);
 
     const newEvent = useCallback(
         (event) => {
+            setPopupDisplay(true);
             setEvents((prev) => {
                 const idList = prev.map((item) => item.id);
                 const newId = Math.max(...idList) + 1;
                 return [ ...prev, { ...event, id: newId } ];
-            })
+            });
         },
         [setEvents]
     );
@@ -96,6 +99,15 @@ function Calendar() {
                     selectable
                 />
             </div>
+            { popupDisplay &&
+                <Popup>
+                    <div style={{display: "flex", justifyContent: "space-between", margin: "0 7px 15px 7px"}}>
+                        <p style={{display: "block", fontWeight: "bold"}}>Title from projects!</p>
+                        <a onClick={ () => setPopupDisplay(false) } className="popup-close">&#10006;</a>
+                    </div>
+                    <p>Woah this is a popup!</p>
+                </Popup>
+            }
         </>
     );
 }

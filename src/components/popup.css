@@ -1,3 +1,4 @@
+/* Styles for full screen popups */
 .popup .popup-frame {
     /* Sets position of the object */
     position: fixed;
@@ -17,6 +18,7 @@
 
     box-shadow: 5px 5px 3px -5px black;
 }
+
 .popup .popup-close {
     display: block;
     color: inherit;
@@ -28,6 +30,46 @@
    color: red; 
 }
 
-p {
+.popup p {
     margin: 0;
+}
+
+/* Styles for small inscreen popups */
+.min-popup {
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+.min-popup .min-popup-out {
+    display: none;
+
+    position: absolute;
+
+    text-align: center;
+
+    top: 105%;
+    left: 0%;
+    width: 100%;
+    padding: 15px 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.min-popup:hover .min-popup-out {
+    display: block;
+}
+
+.min-popup .min-popup-out::after {
+    content: "";
+    position: absolute;
+    background: none;
+    bottom: 100%;
+    left: 0%;
+    
+    height: calc(11px * 2);
+
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.9);
 }
