@@ -64,11 +64,13 @@ function Calendar() {
                                     flexDirection: "column",
                                     flex: "1",
                                 }}>
-                                    <input type="text" placeholder="Title" />
-                                    <input type="text" placeholder="Another Thing" />
-                                    <input type="text" placeholder="Woah Even more things" />
-                                    <input type="text" placeholder="I can't even believe the amount of things" />
-                                    <input type="text" placeholder="T'is crazy" />
+                                    <input type="test" placeholder="Description" />
+                                    <input type="test" placeholder="Category (Optional)" />
+                                    <input type="test" placeholder="Tag (Optional)" />
+                                    <div>
+                                        <input type="checkbox" id="billable" />
+                                        <label htmlFor="billable"><i className="fa-solid fa-money-bill"></i> Billable</label>
+                                    </div>
                                 </div>
                                 <Button style={{width: "100%",}}>Submit</Button>
                             </form>
