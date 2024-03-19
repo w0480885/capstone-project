@@ -1,9 +1,9 @@
 .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
 
-    margin: 0;
-    padding: 15px;
+    gap: 15px;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -16,36 +16,47 @@
     border: 1px solid white;
     border-radius: 15px;
 
+    background-color: rgba(0, 0, 0, 0.6);
+
     cursor: pointer;
 }
 
 .card > div {
     display: flex;
+    flex-direction: column;
     gap: 15px;
-    align-items: center;
+    flex: 0;
+    flex-grow: 1;
+
+    margin: 10px;
 }
 
-.card > div > img {
+.card > div * {
+    margin: 0;
+}
+
+.card > img {
     flex-shrink: 1;
     border-radius: 99999px;
     background-color: grey;
-}
 
-.card > div > div {
-    flex: 1;
+    margin-left: 15px;
 }
 
 .card * {
     overflow: hidden;
     text-overflow: ellipsis;
+
+    font-size: 0.9em;
+}
+
+.card h1 {
+    white-space: nowrap;
+    font-size: 1.2rem
 }
 
 .card img {
     border: none;
-}
-
-.card h2 {
-    color: inherit;
 }
 
 @media only screen and (max-width: 600px) {

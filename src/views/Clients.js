@@ -7,13 +7,11 @@ function Clients() {
     for (let i = 0; i<amnt_of_cards; i++) {
         cards.push(
             <Card href="#">
+                <img width="100px" height="100px" />
                 <div>
-                    <img width="100px" height="100px" />
-                    <div>
-                        <h1>Hello</h1>
-                        <hr />
-                        <p>Some text inside the thing</p>
-                    </div>
+                    <h1>Hello</h1>
+                    <hr />
+                    <p>Some text inside the thing</p>
                 </div>
             </Card>
         );
