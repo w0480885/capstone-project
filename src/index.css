@@ -37,6 +37,7 @@
     --syn-comment: #727169;
     --syn-punct: #9CABCA;
     --syn-special1: #7FB4CA;
+    --syn-special1: rgba(0, 0, 0, 0.6);
     --syn-special2: #E46876;
     --syn-special3: #FF5D62;
 

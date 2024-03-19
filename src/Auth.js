@@ -20,6 +20,8 @@ function AuthCard({ children, ...props }) {
                 borderRadius: "15px",
                 boxShadow: "1px 1px 5px 0px rgba(255, 255, 255, .5)",
 
+                backgroundColor: "rgba(0, 0, 0, 0.6)",
+
                 width: "200px",
                 padding: "15px",
             }}>

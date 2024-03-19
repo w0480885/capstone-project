@@ -26,9 +26,6 @@ function Projects() {
                 <Button>Ajust Duration</Button>
                 <Button>Start/Stop</Button>
             </TopBar>
-            <MinPopup label="Click Me!">
-                <a>Hello</a>
-            </MinPopup>
         </>
     );
 }
