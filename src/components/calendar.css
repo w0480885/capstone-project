@@ -3,6 +3,23 @@
 	background-color: white;
 }
 
+.rbc-event {
+    border: 0.5px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 0 !important;
+
+    background-color: var(--scheme_bg_search) !important;
+}
+
+.rbc-btn-group > button {
+    border-radius: 0 !important;
+    border: 0 !important;
+}
+
+button.rbc-active {
+    box-shadow: unset !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
 .rbc-month-row {
 	min-height: 5em;
 }

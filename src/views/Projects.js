@@ -6,7 +6,7 @@ import {Popup, MinPopup} from "../components/popup.js";
 
 function Projects() {
 
-    const [popupDisplay, setPopupDisplay] = useState(true);
+    const [popupDisplay, setPopupDisplay] = useState(false);
 
     return (
         <>
