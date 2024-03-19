@@ -19,6 +19,7 @@
     background-color: rgba(0, 0, 0, 0.6);
 
     cursor: pointer;
+    transition: .1s;
 }
 
 .card:hover {
