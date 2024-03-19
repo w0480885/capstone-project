@@ -15,6 +15,23 @@
     border: 0 !important;
 }
 
+.rbc-today {
+    background-color: #e1eef7 !important;
+}
+
+.rbc-today > .rbc-timeslot-group {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.rbc-today > .rbc-timeslot-group > .rbc-time-slot {
+    border: 0 !important;
+}
+
+.rbc-today > .rbc-timeslot-group > .rbc-time-slot:last-child {
+    border-top: 0.5px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+
 button.rbc-active {
     box-shadow: unset !important;
     background-color: rgba(0, 0, 0, 0.2) !important;
