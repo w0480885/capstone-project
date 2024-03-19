@@ -21,6 +21,11 @@
     cursor: pointer;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    transition: .2s;
+}
+
 .card > div {
     display: flex;
     flex-direction: column;
