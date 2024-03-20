@@ -1,0 +1,68 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        >
+    <defs />
+    <g>
+        <g transform="translate(0.4352169)">
+            <rect
+                style="fill:#3f6c96;fill-opacity:1;stroke:#3f6c96;stroke-width:9.08937;stroke-linejoin:round;"
+                width="58.709412"
+                height="40.910625"
+                x="24.665033"
+                y="49.219261"
+             />
+            <rect
+                style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:9.089;stroke-linejoin:round"
+                width="58.709412"
+                height="40.910625"
+                x="15.755121"
+                y="39.583721"
+            />
+        </g>
+        <g transform="translate(-4.4549561)">
+            <rect
+                style="fill:#000000;stroke:#fefefe;stroke-width:1.75;stroke-dasharray:none;stroke-opacity:1"
+                width="30"
+                height="65"
+                x="35"
+                y="5.0679955"
+        />
+            <g transform="matrix(1.6705858,0,0,1.6705858,-25.802153,-5.8283519)">
+                <circle
+                    style="fill:#ffffff;"
+                    cx="39.477036"
+                    cy="9.6914339"
+                    r="1"/>
+                <circle
+                    style="fill:#ffffff;"
+                    cx="39.477036"
+                    cy="13.89834"
+                    r="1"
+                />
+                <circle
+                    style="fill:#ffffff;"
+                    cx="39.477036"
+                    cy="18.105247"
+                    r="1"
+                />
+                <circle
+                    style="fill:#ffffff;"
+                    cx="39.477036"
+                    cy="22.312153"
+                    r="1"
+                />
+                <circle
+                    style="fill:#ffffff;"
+                    cx="39.477036"
+                    cy="26.51906"
+                    r="1"
+                />
+            </g>
+        </g>
+        <path
+            style="fill:#ffffff;stroke:#ffffff;stroke-width:1.32371;stroke-linejoin:round;"
+            d="m 43.762177,46.690432 v 9.093317 H 39.61296 l 5.932084,9.435173 5.932083,-9.435173 h -3.760228 v -9.093317 z"
+        />
+    </g>
+</svg>

@@ -26,7 +26,11 @@ function Sidebar({ children, ...props }) {
                             href={props.href}
                             style={{flexDirection: "row",}}
                         >
-                            <h2 style={{textDecoration: "underline",}}>{props.title}</h2>
+                            <img src="/favicon.svg" width="auto" height="auto" style={{
+                                backgroundColor: "white",
+                                borderRadius: "15px",
+                            }} />
+                            {/* <h2 style={{textDecoration: "underline",}}>{props.title}</h2> */}
                         </a>
                         
                         {/* Shows the SVG at the top of the page if the view isn't being shown on a desktop */}
