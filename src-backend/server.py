@@ -1,6 +1,17 @@
-#!/usr/bin/env python3
+from flask import Flask, request
+import sqlite3
 
-from flask import Flask
+app = Flask(__name__)
+allowed_methods = ["GET", "POST"]
+database = 'events.db'
+
+def create_table():
+    conn = sqlite3.connect(database)
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS events
+                 (id INTEGER PRIMARY KEY, title TEXT, start TEXT, end TEXT)''')
+    conn.commit()
+    conn.close()
 
 def add_sample_data():
     conn = sqlite3.connect(database)
