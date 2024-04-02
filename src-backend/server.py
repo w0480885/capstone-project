@@ -12,13 +12,13 @@ def add_sample_data():
         "end": "2023-01-01T02:57:00"
     })
 
-@app.route("/api/events", methods=['GET'])
+@app.route("/timer", methods=['GET'])
 def get_events():
     return {"events": events}
 
 @app.route("/api/events", methods=['POST'])
 def add_event():
-    data = add_sample_data
+    data = events
     title = data.get('title')
     start = data.get('start')
     end = data.get('end')
