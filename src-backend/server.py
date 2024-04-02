@@ -1,9 +1,8 @@
-from flask import Flask, request
-import json
+from flask import Flask
 
-#app = Flask(__name__)
-#allowed_methods = ["GET", "POST"]
-#events = []
+app = Flask(__name__)
+allowed_methods = ["GET", "POST"]
+events = []
 
 def add_sample_data():
     events.append({
@@ -19,7 +18,7 @@ def get_events():
 
 @app.route("/api/events", methods=['POST'])
 def add_event():
-    data = request.json
+    data = add_sample_data
     title = data.get('title')
     start = data.get('start')
     end = data.get('end')
