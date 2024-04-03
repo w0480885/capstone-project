@@ -30,7 +30,7 @@ function AuthCard({ children, ...props }) {
                 <hr style={{margin: "20px 0"}} />
 
                 {/* Form submission data can be formatted here */}
-                <form action="/">
+                <form action="/timer">
                     {children}
                     <Button
                         type="submit"

@@ -34,6 +34,10 @@ def add_event():
     else:
         return {"error": "Invalid event data provided"}
 
+@app.route("/api", methods=allowed_methods)
+def hello_world():
+    return {"a": "Some other Data"}
+
 if __name__ == '__main__':
     add_sample_data()
     app.run()

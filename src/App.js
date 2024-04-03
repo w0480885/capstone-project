@@ -24,8 +24,9 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
+                <Route index element={<Home />} />
+                <Route path="/timer" element={<Layout />}>
+                    <Route index element={<Navigate to="timer" />} />
                     <Route path="timer" element={<Timer />} />
                     <Route path="reports" element={<Reports />} />
                     <Route path="performance" element={<Performance />} />
