@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import psycopg2
-from config import load_config
+from .config import LoadConfig
 
 
 def Connect(config: dict = None):
@@ -11,7 +11,7 @@ def Connect(config: dict = None):
     """
 
     if config is None:
-        config = load_config()
+        config = LoadConfig()
 
     try:
         with psycopg2.connect(**config) as con:

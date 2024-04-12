@@ -1,7 +1,7 @@
 from flask import Flask
 import psycopg2
-from config import load_config
-from connect import Connect
+from .config import LoadConfig
+from .connect import Connect
 
 app = Flask(__name__)
 allowed_methods = ["GET", "POST"]
@@ -29,27 +29,6 @@ def get_events():
             "end": "2023-01-01T02:57:00"
         }]
     }
-
-
-"""
-@app.route("/api/events", methods=['POST'])
-def add_event():
-    data = events
-    title = data.get('title')
-    start = data.get('start')
-    end = data.get('end'
-    if title and start and end:
-        event = {
-            "id": len(events) + 1,
-            "title": title,
-            "start": start,
-            "end": end
-        }
-        events.append(event)
-        return {"message": "Event added successfully"}
-    else:
-        return {"error": "Invalid event data provided"}
-"""
 
 
 @app.route("/api", methods=allowed_methods)

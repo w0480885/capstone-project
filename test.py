@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import tests
+from src_backend import tests
+
 import sys
 
 import os
