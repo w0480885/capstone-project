@@ -3,7 +3,7 @@
 from configparser import ConfigParser
 
 
-def LoadConfig(filename: str = "../database.ini", section: str = "postgresql") -> dict:
+def LoadConfig(filename: str = "database.ini", section: str = "postgresql") -> dict:
     """
     Loads the configuration in
     """

@@ -12,7 +12,7 @@ def configuration():
     Function for testing the config utility
     """
 
-    config = config.LoadConfig()
+    configuration = config.LoadConfig(filename="database.ini")
 
     return 1
 
@@ -23,7 +23,7 @@ def connection():
     Function for testing the connection utility
     """
 
-    config = config.LoadConfig()
+    configuration = config.LoadConfig(filename="database.ini")
     connect.Connect(config)
 
     return 1

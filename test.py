@@ -3,7 +3,6 @@
 from src_backend import tests
 
 import sys
-
 import os
 
 
@@ -25,8 +24,10 @@ def run_tests():
     print("\x1b[2K", end="\r")  # Magically clears a line
 
     print(f"Failed [ {failed_tests} / {len(iterator)} ]")
+    print("\n\tFINSHED TESTING\n\n")
 
 
 if __name__ == "__main__":
+    from src_backend.server import app
     os.environ["DOMAIN"] = "http://localhost:3001"
     run_tests()
