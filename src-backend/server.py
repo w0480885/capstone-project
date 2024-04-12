@@ -1,9 +1,7 @@
 from flask import Flask
 import psycopg2
 from config import load_config
-from connect import connect
-
-
+from connect import Connect
 
 app = Flask(__name__)
 allowed_methods = ["GET", "POST"]
@@ -17,7 +15,10 @@ events = [{
 
 @app.route("/api/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
 def events():
-    con = connect()
+    con = Connect()
+    if con is None:
+        print(1)
+        return "Can't find resource", 404
     # return str(con)
     cur = con.cursor()
     res = cur.execute("SELECT * FROM Users;").fetchall()
@@ -35,7 +36,7 @@ def add_event():
     data = events
     title = data.get('title')
     start = data.get('start')
-    end = data.get('end')
+    end = data.get('end'
     if title and start and end:
         event = {
             "id": len(events) + 1,

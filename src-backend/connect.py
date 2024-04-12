@@ -4,7 +4,7 @@ import psycopg2
 from config import load_config
 
 
-def connect(config: dict = None):
+def Connect(config: dict = None):
     """
     function for getting a conenction to the database
     returns an error if connection cannot be made
