@@ -2,6 +2,7 @@
 
 from .structs import TestResult
 from functools import wraps
+import traceback
 
 
 def test(module: str = None):
@@ -19,7 +20,7 @@ def test(module: str = None):
                 res = func(*args, **kwargs)
                 return (TestResult.PASS, res)
             except Exception as e:
-                return (TestResult.FAIL, e.__repr__())
+                return (TestResult.FAIL, traceback.format_exc())
 
 
         func_path = f"{module}.{func.__name__}()"

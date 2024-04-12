@@ -3,25 +3,7 @@
 import tests
 import sys
 
-
-@tests.wrappers.test(__name__)
-def pass_tst():
-    assert True
-
-
-@tests.wrappers.test(__name__)
-def fail():
-    assert False
-    
-
-@tests.wrappers.test(__name__)
-def pass_tst2():
-    assert True
-
-
-@tests.wrappers.test(__name__)
-def pass_tst3():
-    assert True
+import os
 
 
 def run_tests():
@@ -37,14 +19,13 @@ def run_tests():
         else:
             failed_tests += 1
             print(f"ERROR AT TEST [ {i + 1} / {len(iterator)} ] in module {k}")
-            print(f"\tThrew: {res[1]}")
+            print(res[1])
             
     print("\x1b[2K", end="\r")  # Magically clears a line
 
     print(f"Failed [ {failed_tests} / {len(iterator)} ]")
 
 
-
-
 if __name__ == "__main__":
+    os.environ["DOMAIN"] = "http://localhost:3001"
     run_tests()
