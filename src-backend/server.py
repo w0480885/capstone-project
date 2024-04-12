@@ -5,12 +5,6 @@ from connect import Connect
 
 app = Flask(__name__)
 allowed_methods = ["GET", "POST"]
-events = [{
-    "id": 1,
-    "title": "An event that is scheduled for today!!",
-    "start": "2022-12-31T23:57:00",
-    "end": "2023-01-01T02:57:00"
-}]
 
 
 @app.route("/api/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
@@ -27,7 +21,14 @@ def events():
 
 @app.route("/timer", methods=['GET'])
 def get_events():
-    return {"events": events}
+    return {
+        "events": [{
+            "id": 1,
+            "title": "An event that is scheduled for today!!",
+            "start": "2022-12-31T23:57:00",
+            "end": "2023-01-01T02:57:00"
+        }]
+    }
 
 
 """
