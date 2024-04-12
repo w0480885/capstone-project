@@ -10,6 +10,7 @@ allowed_methods = ["GET", "POST"]
 @app.route("/api/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
 def events():
     con = Connect()
+    return con.__repr__()
     if con is None:
         print(1)
         return "Can't find resource", 404

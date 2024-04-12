@@ -148,7 +148,7 @@ def check_endpoints_from_file():
     # Gets the endpoint values from a file
     with open("endpoints.txt", "r") as f:
         endpoints = f.read().split("\n")
-        endpoints = [ os.environ["DOMAIN"] + i for i in endpoints ] # Adds Domain to all endpoints
+        endpoints = [ os.environ["DOMAIN"] + i for i in endpoints if i != "" ] # Adds Domain to all endpoints
 
     # Gets every reference from the pages
     check_with_threads(endpoints = endpoints, amnt = 2)

@@ -28,6 +28,5 @@ def run_tests():
 
 
 if __name__ == "__main__":
-    from src_backend.server import app
     os.environ["DOMAIN"] = "http://localhost:3001"
     run_tests()
