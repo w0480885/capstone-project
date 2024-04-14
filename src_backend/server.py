@@ -10,14 +10,17 @@ allowed_methods = ["GET", "POST"]
 @app.route("/api/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
 def events():
     con = Connect()
-    return con.__repr__()
+    # return con.__repr__()
     if con is None:
-        print(1)
         return "Can't find resource", 404
     # return str(con)
     cur = con.cursor()
-    res = cur.execute("SELECT * FROM Users;").fetchall()
-    return res
+    res = cur.execute("SELECT * FROM Users;")
+
+    if res is None:
+        return f"Connection made but no results found! [ TYPE: '{type(res)}' & VALUE: '{res}' ]", 404
+
+    return str(res.fetchone())
 
 
 @app.route("/timer", methods=['GET'])
@@ -30,6 +33,12 @@ def get_events():
             "end": "2023-01-01T02:57:00"
         }]
     }
+
+
+@app.route("/api/auth/signup", methods=[""])
+def signup():
+    con = Connect()
+    return 1
 
 
 @app.route("/api", methods=allowed_methods)

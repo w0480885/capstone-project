@@ -24,7 +24,6 @@ def connection():
     """
 
     configuration = config.LoadConfig(filename="database.ini")
-    connect.Connect(config)
+    connected_config = connect.Connect(config)
 
     return 1
-
