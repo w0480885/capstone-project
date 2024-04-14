@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 from .models import db, User
 from .config import LoadConfig
+from .connect import Connect
 
 
 def init_app():
@@ -11,7 +12,7 @@ def init_app():
     app = Flask(__name__)
     CORS(
         app,
-        resources={"/api/*": {"origins": "http://localhost:3000"}},
+        resources={"/*": {"origins": "http://localhost:3000"}},
         support_credentials=True,
     )
     # CORS(app)
@@ -22,15 +23,22 @@ def init_app():
     del conf
 
     from .routes.routes import routes as routes_pb
-    app.register_blueprint(routes_pb, url_prefix="/api")
+    app.register_blueprint(routes_pb, url_prefix="/")
     from .routes.auth import auth as auth_pb
-    app.register_blueprint(auth_pb, url_prefix="/api/auth")
+    app.register_blueprint(auth_pb, url_prefix="/auth")
 
     login_manager = LoginManager()
 
     @login_manager.user_loader
     def user_loader(user_id: int) -> User:
-        return User.query.get(int(user_id))
+
+        user_id = int(user_id)
+        con = Connect()
+        cur = con.cursor()
+
+        cur.execute("SELECT id, username, email FROM users WHERE id=%s", (user_id,))
+        (id, username, email) = cur.fetchone()
+        return User(id=id, username=username, email=email)
 
     login_manager.init_app(app)
     db.init_app(app)

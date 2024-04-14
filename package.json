@@ -21,7 +21,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:3001",
   "scripts": {
     "server:dev": "python -m flask run --debug -h 0.0.0.0 -p 3001",
     "server:front-end": "react-scripts start",

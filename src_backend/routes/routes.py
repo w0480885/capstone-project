@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, redirect
 from ..connect import Connect
 from flask_login import current_user
 

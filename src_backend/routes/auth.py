@@ -74,18 +74,22 @@ def login():
 
     email = "test@test.test"
     password = "password"
+    remember = True
 
     if request.method == "POST":
         email = request.form.get("email")
         pasword = request.form.get("password")
-        remember = request.form.get("remember")
+        if request.form.get("remember"):
+            remember = True
+        else:
+            remember = False
 
     con = Connect()
     cur = con.cursor()
 
     cur.execute("SELECT id, username, password FROM users WHERE email=%s", (email,))
 
-    res = cur.fetchone() 
+    res = cur.fetchone()
     if res is None:
         return {"valid": 0, "error": "Email not found!", "redirect": "/auth/signup"}
     else:
@@ -110,3 +114,4 @@ def login():
 @login_required
 def logout():
     logout_user()
+    return redirect("/")

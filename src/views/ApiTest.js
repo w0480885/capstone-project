@@ -5,7 +5,7 @@ function ApiTest() {
     const [test_text, set_test_text] = useState("");
 
     useEffect(() => {
-        fetch("/api")
+        fetch("/api/")
             .then(res => res.text())
             .then(data => set_test_text(data))
     }, []);
