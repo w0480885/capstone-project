@@ -1,5 +1,6 @@
 from flask import Blueprint
 from ..connect import Connect
+from flask_login import current_user
 
 routes = Blueprint("routes", __name__)
 
@@ -24,7 +25,7 @@ def events():
     return res
 
 
-@routes.route("/timer", methods=['GET'])
+@routes.route("/timer", methods=["GET"])
 def get_events():
     return {
         "events": [{
@@ -35,3 +36,10 @@ def get_events():
         }]
     }
 
+
+@routes.route("/", methods=["GET"])
+def test():
+    if current_user.is_authenticated:
+        return str(current_user.username)
+    else:
+        return {"res": "User not logged in"}

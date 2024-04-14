@@ -1,12 +1,14 @@
+from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
+    __tablename__ = "Users"
     id = db.Column(db.String, primary_key=True)
-    username = db.Column(db.String)
     email = db.Column(db.String)
+    username = db.Column(db.String)
     is_authenicated = db.Column(db.Boolean, default=False)
 
 

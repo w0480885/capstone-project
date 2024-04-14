@@ -1,8 +1,12 @@
 from flask import request, Blueprint
+from flask_login import login_user, login_required, logout_user
+
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
+
 from ..connect import Connect
 from ..wrappers import auth_res_manager
+from ..models import User, db
 
 auth = Blueprint("auth", __name__)
 
@@ -23,16 +27,14 @@ def signup():
         username = request.form.get("username")
         email = request.form.get("email")
         password = request.form.get("password")
-
-        values = {
-            "username": username,
-            "email": email,
-            "password": password,
-        }
+        if request.form.get("remember"):
+            remember = True
+        else:
+            remember = False
 
     # Hashes Password
     ph = PasswordHasher()
-    values["password"] = ph.hash(values["password"])
+    password = ph.hash(password)
 
     # Makes a connection to DB
     con = Connect()
@@ -43,7 +45,7 @@ def signup():
 
     id = cur.fetchone()
 
-    cur.execute("SELECT email FROM users WHERE email=%s", (values["email"],))
+    cur.execute("SELECT email FROM users WHERE email=%s", (email))
     if cur.fetchone() is not None:
         # return "Email already exists!", 404
         return {"valid": 0, "error": "Email already exists!", "redirect": "/auth/login"}
@@ -54,14 +56,15 @@ def signup():
         id = id[0] + 1
 
     # Adds the user
-    cur.execute("INSERT INTO users (id, username, email, password) VALUES (%s, %s, %s, %s)", (id, *tuple(values.values())))
-    cur.execute("SELECT * FROM users")
-
-    res = cur.fetchall()
+    cur.execute("INSERT INTO users (id, username, email, password) VALUES (%s, %s, %s, %s)", (id, username, email, password))
 
     con.commit()
     con.close()
-    # return res
+
+    # Loads new user in
+    user = User(id=id, username=username, email=email)
+    login_user(new_user, remember=remember)
+
     return {"valid": 1}
 
 
@@ -75,23 +78,25 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         pasword = request.form.get("password")
+        remember = request.form.get("remember")
 
     con = Connect()
     cur = con.cursor()
 
-    cur.execute("SELECT password FROM users WHERE email=%s", (email,))
+    cur.execute("SELECT id, username, password FROM users WHERE email=%s", (email,))
 
     res = cur.fetchone() 
     if res is None:
         return {"valid": 0, "error": "Email not found!", "redirect": "/auth/signup"}
     else:
-        pw_hash = res[0]
+        (id, username, pw_hash) = res
 
     ph = PasswordHasher()
 
     try:
         if ph.verify(pw_hash, password):
-            # return {"valid": 1}
+            user = User(id=id, username=username, email=email)
+            login_user(user, remember=remember)
             return {"valid": 1}
         else:
             return {"valid": 0, "error": "Validation Error, ph.verify returned false"}
@@ -99,3 +104,9 @@ def login():
     except VerificationError:
         # If the verification didn't work
         return {"valid": 0, "error": "Validation Error"}
+
+
+@auth.route("/logout", methods=["GET"])
+@login_required
+def logout():
+    logout_user()

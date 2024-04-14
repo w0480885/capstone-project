@@ -12,6 +12,7 @@ def Connect(config: dict = None):
 
     if config is None:
         config = LoadConfig()
+    del config["secret"]
 
     try:
         with psycopg2.connect(**config) as con:

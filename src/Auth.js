@@ -111,10 +111,13 @@ function Login() {
         <AuthCard
             title="Login"
             alt={<a href="signup">Signup</a>}
-        url="/api/auth/login"
+            url="/api/auth/login"
         >
             <input name="email" type="text" placeholder="Enter Email" />
             <input name="password" type="password" placeholder="Enter Password" />
+            <label htmlFor="remember">Remember me</label>
+            <input id="remember" type="checkbox" />
+            <br />
         </AuthCard>
     );
 }
@@ -129,6 +132,9 @@ function Signup() {
             <input name="email" type="text" placeholder="Enter Email" />
             <input name="username" type="text" placeholder="Enter Username" />
             <input name="password" type="password" placeholder="Enter Password" />
+            <label htmlFor="remember">Remember me</label>
+            <input id="remember" type="checkbox" />
+            <br />
         </AuthCard>
     );
 }
