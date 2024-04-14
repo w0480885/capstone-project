@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, request
 import psycopg2
+from argon2 import PasswordHasher
 from .config import LoadConfig
 from .connect import Connect
 
@@ -15,12 +16,16 @@ def events():
         return "Can't find resource", 404
     # return str(con)
     cur = con.cursor()
-    res = cur.execute("SELECT * FROM Users;")
+    cur.execute("SELECT * FROM Users;")
+
+    res = cur.fetchall()
+
+    con.close()
 
     if res is None:
-        return f"Connection made but no results found! [ TYPE: '{type(res)}' & VALUE: '{res}' ]", 404
+        return f"Connection made but no results found! [ TYPE: '{type(cur)}' & VALUE: '{cur}' ]", 404
 
-    return str(res.fetchone())
+    return res
 
 
 @app.route("/timer", methods=['GET'])
@@ -35,10 +40,53 @@ def get_events():
     }
 
 
-@app.route("/api/auth/signup", methods=[""])
+@app.route("/api/auth/signup", methods=["GET", "POST"])
 def signup():
+
+    # Sets default values
+    values = {
+        "username": "some1and2-xc",
+        "email": "test@test.test",
+        "password": "password",
+    }
+
+    if request.method == "POST":
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        values = {
+            "username": username,
+            "email": email,
+            "password": password,
+        }
+
+    ph = PasswordHasher()
+    values["password"] = ph.hash(values["password"])
+
+    # Makes a connection
     con = Connect()
-    return 1
+    cur = con.cursor()
+
+
+    cur.execute("SELECT MAX(id) FROM users")
+    id = cur.fetchone()[0]
+
+    cur.execute("SELECT email FROM users WHERE email=%s", (values["email"],))
+    if cur.fetchone() is not None:
+        return "Email already exists!", 404
+
+    if id is None:
+        id = 1
+
+    cur.execute("INSERT INTO users (id, username, email, password) VALUES (%s, %s, %s, %s)", (id, *tuple(values.values())))
+    cur.execute("SELECT * FROM users")
+
+    res = cur.fetchall()
+
+    con.commit()
+    con.close()
+    return res
 
 
 @app.route("/api", methods=allowed_methods)
