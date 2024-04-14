@@ -1,9 +1,11 @@
-from flask import Flask, request, redirect
+from flask import Flask, request
 import psycopg2
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
+
 from .config import LoadConfig
 from .connect import Connect
+from .wrappers import auth
 
 app = Flask(__name__)
 allowed_methods = ["GET", "POST"]
@@ -42,6 +44,7 @@ def get_events():
 
 
 @app.route("/api/auth/signup", methods=["GET", "POST"])
+@auth(error_redirect="/auth/signup", success_redirect="/timer")
 def signup():
 
     # Sets default values
@@ -79,7 +82,7 @@ def signup():
     cur.execute("SELECT email FROM users WHERE email=%s", (values["email"],))
     if cur.fetchone() is not None:
         # return "Email already exists!", 404
-        return {"valid": 0, "error": "Email already exists!"}
+        return {"valid": 0, "error": "Email already exists!", "redirect": "/auth/login"}
 
     if id is None:
         id = 1
@@ -95,11 +98,11 @@ def signup():
     con.commit()
     con.close()
     # return res
-    return redirect("/timer")
-    # return {"valid": 1}
+    return {"valid": 1}
 
 
 @app.route("/api/auth/login", methods=["GET", "POST"])
+@auth(error_redirect="/auth/login", success_redirect="/timer")
 def login():
 
     email = "test@test.test"
@@ -116,7 +119,7 @@ def login():
 
     res = cur.fetchone() 
     if res is None:
-        return "Email not found", 406
+        return {"valid": 0, "error": "Email not found", "redirect": "/auth/signup"}
     else:
         pw_hash = res[0]
 
@@ -125,7 +128,7 @@ def login():
     try:
         if ph.verify(pw_hash, password):
             # return {"valid": 1}
-            return redirect("/timer")
+            return {"valid": 1}
         else:
             return {"valid": 0, "error": "Validation Error, ph.verify returned false"}
 
