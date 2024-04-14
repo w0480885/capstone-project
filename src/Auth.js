@@ -1,4 +1,5 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useSearchParams } from "react-router-dom";
+import {useState} from "react";
 import {Button} from "./components/buttons";
 
 function AuthCard({ children, ...props }) {
@@ -43,8 +44,42 @@ function AuthCard({ children, ...props }) {
 }
 
 function AuthLayout({ children }) {
+    const [parameters] = useSearchParams()
+    const [display, setDisplay] = useState(true)
+
     return (
         <>
+            { display &&
+                <div style={{
+                    display: "flex",
+                    alignItems: "center",
+
+                    position: "fixed",
+                    top: "15px",
+                    right: "0px",
+
+                    backgroundColor: "lightblue",
+                    color: "red",
+
+                    padding: "15px 15px",
+                    margin: "0",
+                }}>
+                    <button style={{
+                        color: "black",
+                        background: "none",
+                        border: "none",
+                        fontSize: "1.05rem",
+                    }}
+                    onClick={() => setDisplay(false)}
+                    >&#10005;</button>
+                    <p style={{
+                        padding: "0",
+                        margin: "0",
+                        color: "black",
+                    }}>
+                    {parameters.get("message")}</p>
+                </div>
+            }
             <div style={{
                 display: "flex",
                 flexDirection: "column",

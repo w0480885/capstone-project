@@ -119,7 +119,7 @@ def login():
 
     res = cur.fetchone() 
     if res is None:
-        return {"valid": 0, "error": "Email not found", "redirect": "/auth/signup"}
+        return {"valid": 0, "error": "Email not found!", "redirect": "/auth/signup"}
     else:
         pw_hash = res[0]
 
