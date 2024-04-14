@@ -4,9 +4,10 @@ from flask import redirect
 from urllib.parse import quote
 
 
-def auth(error_redirect: str = "/", success_redirect: str = "/"):
+def auth_res_manager(error_redirect: str = "/", success_redirect: str = "/"):
     """
-    Funciton wrapper for tests
+    Funciton wrapper for authentication endpoints
+    This wrapper manages the responces of the endpoints
     """
 
     def outer(func):
@@ -25,7 +26,7 @@ def auth(error_redirect: str = "/", success_redirect: str = "/"):
             if "redirect" in res:
                 if "error" not in res:
                     return redirect(res["redirect"])
-                return redirect(res["redirect"] + "?message=" + res["error"])
+                return redirect(res["redirect"] + "?message=" + quote(res["error"]))
 
             if res["valid"] == 1:
                 return redirect(success_redirect)

@@ -24,4 +24,4 @@ def LoadConfig(filename: str = "database.ini", section: str = "postgresql") -> d
     return config
 
 if __name__ == "__main__":
-    print(load_config())
+    print(LoadConfig(filename="../database.ini"))

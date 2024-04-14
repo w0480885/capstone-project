@@ -1,50 +1,14 @@
-from flask import Flask, request
-import psycopg2
+from flask import request, Blueprint
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
+from ..connect import Connect
+from ..wrappers import auth_res_manager
 
-from .config import LoadConfig
-from .connect import Connect
-from .wrappers import auth
-
-app = Flask(__name__)
-allowed_methods = ["GET", "POST"]
+auth = Blueprint("auth", __name__)
 
 
-@app.route("/api/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
-def events():
-    con = Connect()
-    # return con.__repr__()
-    if con is None:
-        return "Can't find resource", 404
-    # return str(con)
-    cur = con.cursor()
-    cur.execute("SELECT * FROM Users;")
-
-    res = cur.fetchall()
-
-    con.close()
-
-    if res is None:
-        return f"Connection made but no results found! [ TYPE: '{type(cur)}' & VALUE: '{cur}' ]", 404
-
-    return res
-
-
-@app.route("/timer", methods=['GET'])
-def get_events():
-    return {
-        "events": [{
-            "id": 1,
-            "title": "An event that is scheduled for today!!",
-            "start": "2022-12-31T23:57:00",
-            "end": "2023-01-01T02:57:00"
-        }]
-    }
-
-
-@app.route("/api/auth/signup", methods=["GET", "POST"])
-@auth(error_redirect="/auth/signup", success_redirect="/timer")
+@auth.route("/signup", methods=["GET", "POST"])
+@auth_res_manager(error_redirect="/auth/signup", success_redirect="/timer")
 def signup():
 
     # Sets default values
@@ -101,8 +65,8 @@ def signup():
     return {"valid": 1}
 
 
-@app.route("/api/auth/login", methods=["GET", "POST"])
-@auth(error_redirect="/auth/login", success_redirect="/timer")
+@auth.route("/login", methods=["GET", "POST"])
+@auth_res_manager(error_redirect="/auth/login", success_redirect="/timer")
 def login():
 
     email = "test@test.test"
@@ -135,17 +99,3 @@ def login():
     except VerificationError:
         # If the verification didn't work
         return {"valid": 0, "error": "Validation Error"}
-
-
-@app.route("/api", methods=allowed_methods)
-def hello_world():
-
-    con = Connect()
-    cur = con.cursor()
-
-    cur.execute("SELECT * FROM users")
-
-    return cur.fetchall()
-
-    return {"a": "Some other Data"}
-
