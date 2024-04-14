@@ -50,6 +50,7 @@ def signup():
         "password": "password",
     }
 
+    # Gets request data
     if request.method == "POST":
         username = request.form.get("username")
         email = request.form.get("email")
@@ -61,14 +62,15 @@ def signup():
             "password": password,
         }
 
+    # Hashes Password
     ph = PasswordHasher()
     values["password"] = ph.hash(values["password"])
 
-    # Makes a connection
+    # Makes a connection to DB
     con = Connect()
     cur = con.cursor()
 
-
+    # Gets new ID
     cur.execute("SELECT MAX(id) FROM users")
     id = cur.fetchone()[0]
 
@@ -78,7 +80,13 @@ def signup():
 
     if id is None:
         id = 1
+    elif id.isdigit():
+        id = int(id) + 1
+    else:
+        con.close()
+        return f"Can't find ID {id} (isn't an integer)", 400
 
+    # Adds the user
     cur.execute("INSERT INTO users (id, username, email, password) VALUES (%s, %s, %s, %s)", (id, *tuple(values.values())))
     cur.execute("SELECT * FROM users")
 
@@ -86,7 +94,8 @@ def signup():
 
     con.commit()
     con.close()
-    return res
+    # return res
+    return 1
 
 
 @app.route("/api", methods=allowed_methods)
