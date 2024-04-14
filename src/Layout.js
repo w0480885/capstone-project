@@ -26,7 +26,7 @@ function Sidebar({ children, ...props }) {
                             href={props.href}
                             style={{flexDirection: "row",}}
                         >
-                            <img src="/favicon.svg" width="auto" height="auto" style={{
+                            <img src="/favicon.svg" width="auto" height="auto" alt="icon" style={{
                                 backgroundColor: "white",
                                 borderRadius: "15px",
                             }} />
@@ -100,7 +100,7 @@ function Footer({ children }) {
             padding: "15px",
             flex: "0",
         }}>
-            <a href="auth">Login & Signup</a>
+            <a href="/auth">Login & Signup</a>
             <a>Contact Support</a>
             <a>Want a sticker?</a>
         </footer>
@@ -114,6 +114,7 @@ function Layout({ children }) {
     };
     return (
         <div className={"layout"} style={object_style}>
+            {/*
             <Sidebar title="Timecard" href="/">
                 <SidebarSection title={"Track"}>
                     <Link to="timer">
@@ -178,6 +179,7 @@ function Layout({ children }) {
                     </Link>
                 </SidebarSection>
             </Sidebar>
+            */}
             <div style={{
                 display: "flex",
                 flexDirection: "column",
