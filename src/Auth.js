@@ -30,11 +30,11 @@ function AuthCard({ children, ...props }) {
                 <hr style={{margin: "20px 0"}} />
 
                 {/* Form submission data can be formatted here */}
-                <form action="/timer">
+                <form method="POST" action={props.url}>
                     {children}
                     <Button
-                        type="submit"
                         style={{margin: "25px 0 0 0"}}
+                        type="submit"
                     >Submit!</Button>
                 </form>
             </div>
@@ -76,9 +76,10 @@ function Login() {
         <AuthCard
             title="Login"
             alt={<a href="signup">Signup</a>}
+        url="/api/auth/login"
         >
-            <input placeholder="Enter Email/Username" />
-            <input placeholder="Enter Password" />
+            <input name="email" type="text" placeholder="Enter Email" />
+            <input name="password" type="password" placeholder="Enter Password" />
         </AuthCard>
     );
 }
@@ -88,10 +89,11 @@ function Signup() {
         <AuthCard
             title="Signup"
             alt={<a href="login">Login</a>}
+            url="/api/auth/signup"
         >
-            <input placeholder="Enter Email" />
-            <input placeholder="Enter Username" />
-            <input placeholder="Enter Password" />
+            <input name="email" type="text" placeholder="Enter Email" />
+            <input name="username" type="text" placeholder="Enter Username" />
+            <input name="password" type="password" placeholder="Enter Password" />
         </AuthCard>
     );
 }

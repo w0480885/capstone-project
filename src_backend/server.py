@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 import psycopg2
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
@@ -73,19 +73,18 @@ def signup():
 
     # Gets new ID
     cur.execute("SELECT MAX(id) FROM users")
-    id = cur.fetchone()[0]
+
+    id = cur.fetchone()
 
     cur.execute("SELECT email FROM users WHERE email=%s", (values["email"],))
     if cur.fetchone() is not None:
-        return "Email already exists!", 404
+        # return "Email already exists!", 404
+        return {"valid": 0, "error": "Email already exists!"}
 
     if id is None:
         id = 1
-    elif id.isdigit():
-        id = int(id) + 1
     else:
-        con.close()
-        return f"Can't find ID {id} (isn't an integer)", 400
+        id = id[0] + 1
 
     # Adds the user
     cur.execute("INSERT INTO users (id, username, email, password) VALUES (%s, %s, %s, %s)", (id, *tuple(values.values())))
@@ -96,7 +95,8 @@ def signup():
     con.commit()
     con.close()
     # return res
-    return 1
+    return redirect("/timer")
+    # return {"valid": 1}
 
 
 @app.route("/api/auth/login", methods=["GET", "POST"])
@@ -124,16 +124,25 @@ def login():
 
     try:
         if ph.verify(pw_hash, password):
-            return {"valid": 1}
+            # return {"valid": 1}
+            return redirect("/timer")
+        else:
+            return {"valid": 0, "error": "Validation Error, ph.verify returned false"}
 
     except VerificationError:
         # If the verification didn't work
-        ...
-
-    return {"valid": 0}
+        return {"valid": 0, "error": "Validation Error"}
 
 
 @app.route("/api", methods=allowed_methods)
 def hello_world():
+
+    con = Connect()
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM users")
+
+    return cur.fetchall()
+
     return {"a": "Some other Data"}
 
