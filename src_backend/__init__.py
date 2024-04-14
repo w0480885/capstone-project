@@ -9,7 +9,12 @@ from .config import LoadConfig
 def init_app():
 
     app = Flask(__name__)
-    CORS(app, resources={"/api/*": {"origins": "http://localhost:3000"}})
+    CORS(
+        app,
+        resources={"/api/*": {"origins": "http://localhost:3000"}},
+        support_credentials=True,
+    )
+    # CORS(app)
 
     conf = LoadConfig()
     app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{conf['user']}:{conf['password']}@{conf['host']}:5432/{conf['database']}"

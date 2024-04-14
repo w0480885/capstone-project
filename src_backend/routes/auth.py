@@ -12,7 +12,7 @@ auth = Blueprint("auth", __name__)
 
 
 @auth.route("/signup", methods=["GET", "POST"])
-@auth_res_manager(error_redirect="/auth/signup", success_redirect="/timer")
+@auth_res_manager(error_redirect="/auth/signup", success_redirect="/v0")
 def signup():
 
     # Sets default values
@@ -69,7 +69,7 @@ def signup():
 
 
 @auth.route("/login", methods=["GET", "POST"])
-@auth_res_manager(error_redirect="/auth/login", success_redirect="/timer")
+@auth_res_manager(error_redirect="/auth/login", success_redirect="/v0")
 def login():
 
     email = "test@test.test"

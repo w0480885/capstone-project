@@ -10,8 +10,6 @@ function ApiTest() {
             .then(data => set_test_text(data))
     }, []);
 
-    console.log(test_text);
-
     return (
         <>
             <h1>API Test!</h1>

@@ -1,4 +1,6 @@
 import { Button } from "../components/buttons";
+import { Link } from "react-router-dom";
+
 
 function Home() {
     return (
@@ -26,7 +28,7 @@ function Home() {
                     display: "flex",
                     gap: "15px",
                 }}>
-                    <Button href="timer">Timer</Button>
+                    <Button href="v0/timer">Timer</Button>
                     <Button href="auth/login">Login</Button>
                 </div>
 

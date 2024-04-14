@@ -25,7 +25,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home />} />
-                <Route path="/timer" element={<Layout />}>
+                <Route path="/v0" element={<Layout />}>
                     <Route index element={<Navigate to="timer" />} />
                     <Route path="timer" element={<Timer />} />
                     <Route path="reports" element={<Reports />} />

@@ -34,6 +34,7 @@ function AuthCard({ children, ...props }) {
                 <form method="POST" action={props.url}>
                     {children}
                     <Button
+                        href=""
                         style={{margin: "25px 0 0 0"}}
                         type="submit"
                     >Submit!</Button>
@@ -116,7 +117,7 @@ function Login() {
             <input name="email" type="text" placeholder="Enter Email" />
             <input name="password" type="password" placeholder="Enter Password" />
             <label htmlFor="remember">Remember me</label>
-            <input id="remember" type="checkbox" />
+            <input id="remember" type="checkbox" defaultChecked />
             <br />
         </AuthCard>
     );
@@ -133,7 +134,7 @@ function Signup() {
             <input name="username" type="text" placeholder="Enter Username" />
             <input name="password" type="password" placeholder="Enter Password" />
             <label htmlFor="remember">Remember me</label>
-            <input id="remember" type="checkbox" />
+            <input id="remember" type="checkbox" defaultChecked />
             <br />
         </AuthCard>
     );

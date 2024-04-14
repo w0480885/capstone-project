@@ -1,4 +1,5 @@
 import "./buttons.css";
+import { Link } from "react-router-dom";
 
 function Button({children, ...props}) {
 	// Set props.href for specifying url
@@ -20,7 +21,7 @@ function Button({children, ...props}) {
 
 	return (
 		<>
-			<a href={props.href}>
+            <a href={props.href}>
 				<button
                     type={props.type}
                     onClick={props.onClick}
@@ -29,7 +30,7 @@ function Button({children, ...props}) {
                 >
 					{children}
 				</button>
-			</a>
+            </a>
 		</>
 	);
 }
