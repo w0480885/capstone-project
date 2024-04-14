@@ -1,6 +1,7 @@
 from flask import Flask, request
 import psycopg2
 from argon2 import PasswordHasher
+from argon2.exceptions import VerificationError
 from .config import LoadConfig
 from .connect import Connect
 
@@ -96,6 +97,40 @@ def signup():
     con.close()
     # return res
     return 1
+
+
+@app.route("/api/auth/login", methods=["GET", "POST"])
+def login():
+
+    email = "test@test.test"
+    password = "password"
+
+    if request.method == "POST":
+        email = request.form.get("email")
+        pasword = request.form.get("password")
+
+    con = Connect()
+    cur = con.cursor()
+
+    cur.execute("SELECT password FROM users WHERE email=%s", (email,))
+
+    res = cur.fetchone() 
+    if res is None:
+        return "Email not found", 406
+    else:
+        pw_hash = res[0]
+
+    ph = PasswordHasher()
+
+    try:
+        if ph.verify(pw_hash, password):
+            return {"valid": 1}
+
+    except VerificationError:
+        # If the verification didn't work
+        ...
+
+    return {"valid": 0}
 
 
 @app.route("/api", methods=allowed_methods)
