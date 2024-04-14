@@ -45,7 +45,7 @@ function AuthCard({ children, ...props }) {
 
 function AuthLayout({ children }) {
     const [parameters] = useSearchParams()
-    const [display, setDisplay] = useState(true)
+    const [display, setDisplay] = useState(parameters.size !== 0)
 
     return (
         <>
