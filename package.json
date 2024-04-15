@@ -23,10 +23,12 @@
   },
   "scripts": {
     "server:dev": "python -m flask run --debug -h 0.0.0.0 -p 3001",
+    "server:prod": "waitress-serve --host 0.0.0.0 --port 3001 app:app",
     "server:front-end": "react-scripts start",
     "start": "concurrently \"npm run server:front-end\" \"npm run server:dev\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "start:prod": "concurrently \"npm run server:front-end\" \"npm run server:prod\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
