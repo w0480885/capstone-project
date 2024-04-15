@@ -12,7 +12,7 @@ def init_app():
     app = Flask(__name__)
     CORS(
         app,
-        resources={"/*": {"origins": "http://localhost:3000"}},
+        resources={"/*": {"origins": "*"}},
         support_credentials=True,
     )
     # CORS(app)

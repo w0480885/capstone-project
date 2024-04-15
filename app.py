@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from src_backend import init_app
+import os
 
 app = init_app()
 
