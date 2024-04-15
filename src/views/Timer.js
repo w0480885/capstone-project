@@ -7,6 +7,7 @@ function Timer() {
 
     return (
         <>
+        {/*
             <TopBar title="What are you working on?">
                 <Button>Create Project</Button>
                 <Button>Tags</Button>
@@ -14,6 +15,7 @@ function Timer() {
                 <Button>Ajust Duration</Button>
                 <Button>Start/Stop</Button>
             </TopBar>
+            */}
             <Calendar />
         </>
     );
