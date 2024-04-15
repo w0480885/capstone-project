@@ -27,10 +27,7 @@ def signup():
         username = request.form.get("username")
         email = request.form.get("email")
         password = request.form.get("password")
-        if request.form.get("remember"):
-            remember = True
-        else:
-            remember = False
+        remember = "remember" in request.form
 
     # Hashes Password
     ph = PasswordHasher()
@@ -79,10 +76,7 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         pasword = request.form.get("password")
-        if request.form.get("remember"):
-            remember = True
-        else:
-            remember = False
+        remember = "remember" in request.form
 
     con = Connect()
     cur = con.cursor()

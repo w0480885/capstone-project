@@ -48,7 +48,8 @@ function Calendar() {
     const getModal = () => {
             return (
                 <>
-                    { popupDisplay &&
+                    {console.log(myEvents)}
+                    <div style={{display: popupDisplay ? "block": "none"}}>
                         <Popup>
                             <div style={{
                                 display: "flex",
@@ -59,29 +60,53 @@ function Calendar() {
                                 <p style={{display: "block", fontWeight: "bold"}}>Add an Event!</p>
                                 <a onClick={ () => setPopupDisplay(false) } className="popup-close">&#10006;</a>
                             </div>
-                            <form style={{
-                                display: "flex",
-                                flex: "1",
-                                flexDirection: "column",
-                                gap: "5px",
-                            }}>
+                            <form onSubmit={
+                                (e) => {
+                                    e.preventDefault()
+                                    fetch("/api/events", {
+                                        method: "POST",
+                                        body: new URLSearchParams(new FormData(document.querySelector("form"))),
+                                    })
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            data = data.map((row) => {
+                                                row.start = new Date(row.start * 1000)
+                                                row.end = new Date(row.end * 1000)
+                                                return row
+                                            })
+                                            setEvents(data)
+                                        })
+                                        .then(() => setPopupDisplay(false))
+                                }}
+                                style={{
+                                    display: "flex",
+                                    flex: "1",
+                                    flexDirection: "column",
+                                    gap: "5px",
+                                }}>
                                 <div style={{
                                     display: "flex",
                                     flexDirection: "column",
                                     flex: "1",
                                 }}>
-                                    <input type="test" placeholder="Description" />
-                                    <input type="test" placeholder="Category (Optional)" />
-                                    <input type="test" placeholder="Tag (Optional)" />
+                                    <input name="description" type="text" placeholder="Description" />
+                                    <input name="category" type="text" placeholder="Category (Optional)" />
+                                    <input name="tag" type="text" placeholder="Tag (Optional)" />
                                     <div>
-                                        <input type="checkbox" id="billable" />
+                                        <input type="checkbox" name="billable" id="billable" />
                                         <label htmlFor="billable"><i className="fa-solid fa-money-bill"></i> Billable</label>
                                     </div>
+                                    {myEvents.length !== 0 &&
+                                        <>
+                                            <input name="data-start" type="hidden" value={myEvents[myEvents.length - 1].start.getTime()} />
+                                            <input name="data-end" type="hidden" value={myEvents[myEvents.length - 1].end.getTime()} />
+                                        </>
+                                    }
                                 </div>
                                 <Button style={{width: "100%",}}>Submit</Button>
                             </form>
                         </Popup>
-                    }
+                    </div>
                 </>
             );
     }

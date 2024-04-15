@@ -11,7 +11,27 @@ def events():
 
     id = current_user.get_id()
 
-    if request.method == "GET":
+
+    if request.method == "POST":
+        title = request.form["description"]
+        category = request.form["category"]
+        tag = request.form["tag"]
+        billable = "billable" in request.form
+        start = float(request.form["data-start"]) / 1000
+        end = float(request.form["data-end"]) / 1000
+
+        con = Connect()
+        cur = con.cursor()
+
+        cur.execute("""
+            INSERT INTO timerentries
+                (userid, name, is_billable, start_date, end_date, projectid, tagid) VALUES
+                (%s, %s, %s, TO_TIMESTAMP(%s), TO_TIMESTAMP(%s), null, null)
+          """, (id, title, billable, start, end))
+        con.commit()
+        con.close()
+
+    if request.method in ["GET", "POST"]:
 
         columns = ["id", "title", "start", "end"]
 
@@ -22,17 +42,15 @@ def events():
         res = cur.fetchall()
         con.close()
 
-        return [
+        response = [
             { columns[i]: j[i]
                     for i in range(len(columns)) }
-            for j in res
-        ]
+            for j in res ]
 
-    elif request.method == "POST":
+    if request.method == "DELETE":
         return "", 418
 
-    elif request.method == "DELETE":
-        return "", 418
+    return response
 
 
 @routes.route("/timer", methods=["GET"])

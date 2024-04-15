@@ -10,16 +10,18 @@ function Popup({ children, ...props}) {
     */
 
     return (
-        <div className="popup">
+        <div className="popup" style={{
+        }}>
             {/* Darkens the background */}
             <div style={{
+                display: props.display,
                 position: "fixed",
                 overflowY: "auto",
                 top: "0",
                 left: "0",
                 bottom: "0",
                 right: "0",
-                backgroundColor: "rgba(0, 0, 0, 0.5)"
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
             }}></div>
 
 
