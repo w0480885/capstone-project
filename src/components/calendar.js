@@ -1,4 +1,4 @@
-import {useState, useCallback} from "react";
+import {useState, useEffect, useCallback} from "react";
 import {Popup} from "../components/popup";
 
 import {Calendar as RBigCalendar, Views, momentLocalizer} from "react-big-calendar";
@@ -16,14 +16,6 @@ const DnDCalendar = withDragAndDrop(RBigCalendar);
 const localizer = momentLocalizer(moment)
 
 // This section is going to be replaced with an API call
-const events = [
-    {
-        id: 5,
-        title: "An event that is scheduled for today!!",
-        start: new Date(new Date().setHours(new Date().getHours() - 3)),
-        end: new Date(new Date().setHours(new Date().getHours() + 3)),
-    },
-];
 
 const views = {
     "agenda": true,
@@ -36,7 +28,21 @@ const allowAllDays = true;
 
 function Calendar() {
 
-    const [myEvents, setEvents] = useState(events);
+    const [myEvents, setEvents] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/events")
+            .then(res => res.json())
+            .then(data => {
+                data = data.map((row) => {
+                    row.start = new Date(row.start * 1000)
+                    row.end = new Date(row.end * 1000)
+                    return row
+                })
+                setEvents(data)
+            });
+    }, [])
+
     const [popupDisplay, setPopupDisplay] = useState(false);
 
     const getModal = () => {

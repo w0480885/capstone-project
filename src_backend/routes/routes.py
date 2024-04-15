@@ -1,28 +1,38 @@
-from flask import Blueprint, redirect
+from flask import Blueprint, redirect, request
 from ..connect import Connect
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 routes = Blueprint("routes", __name__)
 
 
 @routes.route("/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
+@login_required
 def events():
-    con = Connect()
-    # return con.__repr__()
-    if con is None:
-        return "Can't find resource", 404
-    # return str(con)
-    cur = con.cursor()
-    cur.execute("SELECT * FROM Users;")
 
-    res = cur.fetchall()
+    id = current_user.get_id()
 
-    con.close()
+    if request.method == "GET":
 
-    if res is None:
-        return f"Connection made but no results found! [ TYPE: '{type(cur)}' & VALUE: '{cur}' ]", 404
+        columns = ["id", "title", "start", "end"]
 
-    return res
+        con = Connect()
+        cur = con.cursor()
+        cur.execute("SELECT id, name, EXTRACT(EPOCH FROM start_date), EXTRACT(EPOCH FROM end_date) FROM timerentries WHERE userid=%s", (id,))
+
+        res = cur.fetchall()
+        con.close()
+
+        return [
+            { columns[i]: j[i]
+                    for i in range(len(columns)) }
+            for j in res
+        ]
+
+    elif request.method == "POST":
+        return "", 418
+
+    elif request.method == "DELETE":
+        return "", 418
 
 
 @routes.route("/timer", methods=["GET"])
