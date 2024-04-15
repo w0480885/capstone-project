@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useMediaQuery} from "./utils";
 import {Outlet, Link} from "react-router-dom";
 import "./Layout.css";
@@ -100,6 +100,7 @@ function Footer({ children }) {
             padding: "15px",
             flex: "0",
         }}>
+            <a href="/api/auth/logout">Logout</a>
             <a href="/auth">Login & Signup</a>
             <a>Contact Support</a>
             <a>Want a sticker?</a>
@@ -112,6 +113,15 @@ function Layout({ children }) {
         display: "flex",
         minHeight: "100vh",
     };
+    useEffect(() => {
+        fetch("/api/auth/is_logged_in")
+            .then(res => res.json())
+            .then(data => {
+                if (!data["authenticated"]) {
+                    window.location.replace("/auth");
+                }
+            })
+    })
     return (
         <div className={"layout"} style={object_style}>
             {/*

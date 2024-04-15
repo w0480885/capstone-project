@@ -6,8 +6,11 @@ routes = Blueprint("routes", __name__)
 
 
 @routes.route("/events", methods = ["GET", "POST", "UPDATE", "DELETE"])
-@login_required
 def events():
+
+    if current_user.is_authenticated is False:
+        return [], 401
+
 
     id = current_user.get_id()
 

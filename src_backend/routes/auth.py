@@ -1,5 +1,5 @@
-from flask import request, Blueprint
-from flask_login import login_user, login_required, logout_user
+from flask import request, redirect, Blueprint
+from flask_login import current_user, login_user, login_required, logout_user
 
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
@@ -29,6 +29,9 @@ def signup():
         password = request.form.get("password")
         remember = "remember" in request.form
 
+        if request.form.get("password2") != password:
+            return {"valid": 0, "error": "Passwords don't Match!"}
+
     # Hashes Password
     ph = PasswordHasher()
     password = ph.hash(password)
@@ -42,7 +45,7 @@ def signup():
 
     id = cur.fetchone()
 
-    cur.execute("SELECT email FROM users WHERE email=%s", (email))
+    cur.execute("SELECT email FROM users WHERE email=%s", (email,))
     if cur.fetchone() is not None:
         # return "Email already exists!", 404
         return {"valid": 0, "error": "Email already exists!", "redirect": "/auth/login"}
@@ -60,7 +63,7 @@ def signup():
 
     # Loads new user in
     user = User(id=id, username=username, email=email)
-    login_user(new_user, remember=remember)
+    login_user(user, remember=remember)
 
     return {"valid": 1}
 
@@ -75,7 +78,7 @@ def login():
 
     if request.method == "POST":
         email = request.form.get("email")
-        pasword = request.form.get("password")
+        password = request.form.get("password")
         remember = "remember" in request.form
 
     con = Connect()
@@ -101,7 +104,16 @@ def login():
 
     except VerificationError:
         # If the verification didn't work
-        return {"valid": 0, "error": "Validation Error"}
+        return {"valid": 0, "error": f"""Validation Error
+                id: {id} hash: {pw_hash}, pass: {password}
+                """
+
+                }
+
+
+@auth.route("/is_logged_in", methods=["GET"])
+def is_logged_in():
+    return {"authenticated": current_user.is_authenticated is not False}
 
 
 @auth.route("/logout", methods=["GET"])

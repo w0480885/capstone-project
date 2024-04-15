@@ -133,6 +133,7 @@ function Signup() {
             <input name="email" type="text" placeholder="Enter Email" />
             <input name="username" type="text" placeholder="Enter Username" />
             <input name="password" type="password" placeholder="Enter Password" />
+            <input name="password2" type="password" placeholder="Re-enter password" />
             <label htmlFor="remember">Remember me</label>
             <input id="remember" type="checkbox" defaultChecked />
             <br />

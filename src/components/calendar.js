@@ -48,7 +48,6 @@ function Calendar() {
     const getModal = () => {
             return (
                 <>
-                    {console.log(myEvents)}
                     <div style={{display: popupDisplay ? "block": "none"}}>
                         <Popup>
                             <div style={{
@@ -58,11 +57,30 @@ function Calendar() {
                                 flex: "0",
                             }}>
                                 <p style={{display: "block", fontWeight: "bold"}}>Add an Event!</p>
-                                <a onClick={ () => setPopupDisplay(false) } className="popup-close">&#10006;</a>
+                                <button onClick={ () => {
+                                    setPopupDisplay(false)
+                                    fetch("/api/events")
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            data = data.map((row) => {
+                                                row.start = new Date(row.start * 1000)
+                                                row.end = new Date(row.end * 1000)
+                                                return row
+                                            })
+                                            setEvents(data)
+                                        })
+
+                                }} className="popup-close"
+                                style={{
+                                    background: "none",
+                                    border: "none",
+                                }}
+                                >&#10006;</button>
                             </div>
                             <form onSubmit={
                                 (e) => {
                                     e.preventDefault()
+                                    setPopupDisplay(false)
                                     fetch("/api/events", {
                                         method: "POST",
                                         body: new URLSearchParams(new FormData(document.querySelector("form"))),
@@ -76,7 +94,6 @@ function Calendar() {
                                             })
                                             setEvents(data)
                                         })
-                                        .then(() => setPopupDisplay(false))
                                 }}
                                 style={{
                                     display: "flex",
