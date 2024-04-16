@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 from flask_login import LoginManager
 from flask_cors import CORS
 
@@ -26,6 +26,13 @@ def init_app():
     app.register_blueprint(routes_pb, url_prefix="/")
     from .routes.auth import auth as auth_pb
     app.register_blueprint(auth_pb, url_prefix="/auth")
+
+    @app.route("/api/<path:path>")
+    def forward_api(path):
+        """
+        Handles all requests to /api/* and resolves to /*
+        """
+        return redirect("/" + path)
 
     login_manager = LoginManager()
 

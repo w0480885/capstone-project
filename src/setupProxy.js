@@ -6,12 +6,9 @@ module.exports = (app) => {
         createProxyMiddleware({
             target: "http://127.0.0.1:3001",
             changeOrigin: true,
-            // followRedirects: true,
-            /*
             pathRewrite: {
-                "^/api": "/",
+                "^/api": "/api",
             },
-            */
             on: {
                 error: (err, req, res, target) => {
                     res.writeHead(500, {
