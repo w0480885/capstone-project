@@ -6,6 +6,7 @@ COPY . .
 ENV PORT=80
 
 RUN apt-get update
+RUN apt-get install vim -y
 RUN apt-get install nginx -y
 RUN rm /etc/nginx/sites-enabled/default
 
