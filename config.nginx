@@ -21,10 +21,8 @@ server {
     }
     
     location /api {
-        return 302 /api/;
-    }
 
-    location /api/ {
+        proxy_method *;
         include proxy_params;
         proxy_pass http://backend;
     }
